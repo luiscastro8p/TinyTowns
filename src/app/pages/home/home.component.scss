@@ -289,6 +289,7 @@ svg#clouds {
 
 .h-col {
   height: 120px;
+  cursor: pointer;
 }
 
 .bg-image {
@@ -298,4 +299,15 @@ svg#clouds {
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.pos-contain {
+  border: 1px solid cadetblue;
+  top: 19%;
+  position: absolute;
+  left: 12%;
 }

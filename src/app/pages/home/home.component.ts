@@ -9,5 +9,11 @@ export class HomeComponent implements OnInit {
   title = 'TinyTowns';
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
+
+  onclick(val) {
+    console.log(val);
+    
+  }
+
 }
