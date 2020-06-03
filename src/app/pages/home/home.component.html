@@ -5,13 +5,30 @@
         <span style="width: 81px;">Tiny Towns</span>
         <div class="spacer"></div>
         <div class="w-100 text-center">
-            <p>Selecciona un material:</p>
-
+            <Button class="btn btn-success" (click)="lanzardados()" [disabled]="material">Lanzar Dado</Button>
         </div>
     </div>
 
 
     <div class="container text-center pos-contain">
+        <div style="height: 100px;">
+            <p>Selecciona un material: {{material}}</p>
+            <div *ngIf="material === 1" style="height: 30px;width: 30px;" class="bg-primary">
+
+            </div>
+            <div *ngIf="material === 2" style="height: 30px;width: 30px;" class="bg-success">
+
+            </div>
+            <div *ngIf="material === 3" style="height: 30px;width: 30px;" class="bg-danger">
+
+            </div>
+            <div *ngIf="material === 4" style="height: 30px;width: 30px;" class="bg-warning">
+
+            </div>
+            <div *ngIf="material === 5" style="height: 30px;width: 30px;" class="bg-dark">
+
+            </div>
+        </div>
         <div class="row">
             <div class="col-3 h-col center " (click)="onclick(1)">
                 hola
