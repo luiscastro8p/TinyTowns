@@ -12,7 +12,13 @@
 
     <div class="container text-center pos-contain">
         <div style="height: 100px;">
-            <p>Selecciona un material: {{material}}</p>
+            <p>Selecciona un material:
+                <b *ngIf="material === 1">Madera</b>
+                <b *ngIf="material === 2">Trigo</b>
+                <b *ngIf="material === 3">Ladrillo</b>
+                <b *ngIf="material === 4">Vidrio</b>
+                <b *ngIf="material === 5">Piedra</b>
+            </p>
             <div *ngIf="material === 1" style="height: 30px;width: 30px;" class="bg-primary">
 
             </div>
