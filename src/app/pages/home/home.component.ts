@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   D2: Number;
   D3: Number;
   D4: Number;
+  btn1 = false;
   matriz: any[3][3];
   constructor() {}
 
@@ -147,7 +148,7 @@ export class HomeComponent implements OnInit {
         if (this.matriz[ren - 1][col] == 2) {
           if (this.matriz[ren - 1][col + 1] == 4) {
             if (this.matriz[ren][col + 1] == 1) {
-              
+
             }
           }
         }

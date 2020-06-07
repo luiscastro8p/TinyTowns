@@ -5,7 +5,7 @@
         <span style="width: 81px;">Tiny Towns</span>
         <div class="spacer"></div>
         <div class="w-100 text-center">
-            <Button class="btn btn-success" (click)="lanzardados()" >Lanzar Dado</Button>
+            <Button class="btn btn-success" (click)="lanzardados()">Lanzar Dado</Button>
         </div>
     </div>
 
@@ -31,7 +31,8 @@
             </div>
         </div>
         <div class="row">
-            <div  class="col-3 h-col center celda" (click)="onclick(1,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(1,material)">
+                <button class="btn btn-success" [disabled]="btn1">Boton</button>
                 <div *ngIf="A1 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
