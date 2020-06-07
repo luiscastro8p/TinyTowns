@@ -5,7 +5,7 @@
         <span style="width: 81px;">Tiny Towns</span>
         <div class="spacer"></div>
         <div class="w-100 text-center">
-            <Button class="btn btn-success" (click)="lanzardados()" [disabled]="material">Lanzar Dado</Button>
+            <Button class="btn btn-success" (click)="lanzardados()" >Lanzar Dado</Button>
         </div>
     </div>
 
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3 h-col center " (click)="onclick(1,material)">
+            <div  class="col-3 h-col center celda" (click)="onclick(1,material)">
                 <div *ngIf="A1 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(2,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(2,material)">
                 <div *ngIf="A2 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(3,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(3,material)">
                 <div *ngIf="A3 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -112,7 +112,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(4,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(4,material)">
                 <div *ngIf="A4 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -141,7 +141,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3 h-col center" (click)="onclick(5,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(5,material)">
                 <div *ngIf="B1 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -168,7 +168,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(6,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(6,material)">
                 <div *ngIf="B2 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -195,7 +195,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(7,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(7,material)">
                 <div *ngIf="B3 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -222,7 +222,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(8,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(8,material)">
                 <div *ngIf="B4 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -251,7 +251,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3 h-col center" (click)="onclick(9,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(9,material)">
                 <div *ngIf="C1 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -278,7 +278,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(10,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(10,material)">
                 <div *ngIf="C2 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -305,7 +305,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(11,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(11,material)">
                 <div *ngIf="C3 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -332,7 +332,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(12,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(12,material)">
                 <div *ngIf="C4 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -361,7 +361,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-3 h-col center" (click)="onclick(13,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(13,material)">
                 <div *ngIf="D1 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -388,7 +388,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(14,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(14,material)">
                 <div *ngIf="D2 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -415,7 +415,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(15,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(15,material)">
                 <div *ngIf="D3 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera
@@ -442,7 +442,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3 h-col center" (click)="onclick(16,material)">
+            <div class="col-3 h-col center celda" (click)="onclick(16,material)">
                 <div *ngIf="D4 == 1" style="background-color: chocolate;">
                     <div class="bg-green h-30">
                         Madera

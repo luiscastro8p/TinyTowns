@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
   D2: Number;
   D3: Number;
   D4: Number;
-
   matriz: any[3][3];
   constructor() {}
 
@@ -41,92 +40,91 @@ export class HomeComponent implements OnInit {
   }
 
   onclick(val, material) {
-    console.log(val, material);
-
     switch (val) {
       case 1:
        this.matriz[0][0] = material
-        console.log("El valor 1 es ==>  "+val);
-        console.log("El material es ==>" + this.material);
-        console.log("sabemos que es la pos 0 , 0");
-        console.log(this.matriz);
-
         this.A1 = material;
+        this.validarCasa(0,0,material);
         break;
       case 2:
       this.matriz[0][1] = material
-        console.log(val);
-        this.A2 = material;
+      this.validarCasa(0,1,material);
+      this.A2 = material;
         break;
       case 3:
       this.matriz[0][2] = material
-
-        console.log(val);
-        this.A3 = material;
+      this.A3 = material;
+      this.validarCasa(0,2,material);
         break;
       case 4:
       this.matriz[0][3] = material
-
-        console.log(val);
-        this.A4 = material;
+      this.A4 = material;
+      this.validarCasa(0,3,material);
+      
         break;
       case 5:
       this.matriz[1][0] = material
-
+      this.validarCasa(1,0,material);
         this.B1 = material;
         break;
       case 6:
       this.matriz[1][1] = material
+      this.validarCasa(1,1,material);
 
         this.B2 = material;
         break;
       case 7:
       this.matriz[1][2] = material
+      this.validarCasa(1,2,material);
 
         this.B3 = material;
         break;
       case 8:
       this.matriz[1][3] = material
+      this.validarCasa(1,3,material);
 
         this.B4 = material;
         break;
       case 9:
       this.matriz[2][0] = material
+      this.validarCasa(2,0,material);
 
         this.C1 = material;
         break;
       case 10:
       this.matriz[2][1] = material
-
+      this.validarCasa(2,1,material);
         this.C2 = material;
         break;
       case 11:
       this.matriz[2][2] = material
-
+      this.validarCasa(2,2,material);
         this.C3 = material;
         break;
       case 12:
       this.matriz[2][3] = material
-
+      this.validarCasa(2,3,material);
         this.C4 = material;
         break;
       case 13:
       this.matriz[3][0] = material
-
+      this.validarCasa(3,0,material);
         this.D1 = material;
         break;
       case 14:
       this.matriz[3][1] = material
-
+      this.validarCasa(3,1,material);
         this.D2 = material;
         break;
       case 15:
       this.matriz[3][2] = material
+      this.validarCasa(3,2,material);
 
         this.D3 = material;
         break;
       case 16:
       this.matriz[3][3] = material
+      this.validarCasa(3,3,material);
 
         this.D4 = material;
         break;
@@ -142,4 +140,19 @@ export class HomeComponent implements OnInit {
   lanzardados() {
     this.material = this.getRandomMaterial(1, 6);
   }
+  validarCasa(col,ren,material){
+    console.log(this.matriz);
+    if(material==2){
+      if(this.matriz[ren][col+1]==4){
+        console.log(ren,col);
+        if(this.matriz[ren+1][col]==1){
+          console.log("col: "+col,"ren: "+ren+"material: "+material);
+          if(this.matriz[ren+1][col+1]==1){
+                console.log("Puedes hacer una chingadera");
+          }
+        }
+      }
+    }
+  }
 }
+
