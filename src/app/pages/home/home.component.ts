@@ -140,19 +140,43 @@ export class HomeComponent implements OnInit {
   lanzardados() {
     this.material = this.getRandomMaterial(1, 6);
   }
-  validarCasa(col,ren,material){
+  validarCasa(ren,col,material){
     console.log(this.matriz);
-    if(material==2){
-      if(this.matriz[ren][col+1]==4){
-        console.log(ren,col);
-        if(this.matriz[ren+1][col]==1){
-          console.log("col: "+col,"ren: "+ren+"material: "+material);
-          if(this.matriz[ren+1][col+1]==1){
-                console.log("Puedes hacer una chingadera");
+    switch (material) {
+      case 1:
+        if (this.matriz[ren - 1][col] == 2) {
+          if (this.matriz[ren - 1][col + 1] == 4) {
+            if (this.matriz[ren][col + 1] == 1) {
+              
+            }
           }
         }
-      }
+        break;
+      case 2:
+         if (this.matriz[ren][col + 1] == 4) {
+           console.log(ren, col);
+           if (this.matriz[ren + 1][col] == 1) {
+             if (this.matriz[ren + 1][col + 1] == 1) {
+    
+             }
+           }
+         }
+        break;
+      case 4:        
+        if (this.matriz[ren+1][col] == 1) {
+          if (this.matriz[ren][col-1] == 2) {
+            if (this.matriz[ren + 1][col -1] == 1) {
+              
+            }
+          }
+          
+        }
+        break;
+      default:
+        break;
     }
+   
+   
   }
 }
 
