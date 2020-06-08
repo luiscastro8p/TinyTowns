@@ -260,7 +260,8 @@ svg#clouds {
 
 /* Responsive Styles */
 @media screen and (max-width: 767px) {
-  .card-container > *:not(.circle-link),
+
+  .card-container>*:not(.circle-link),
   .terminal {
     width: 100%;
   }
@@ -300,11 +301,13 @@ svg#clouds {
   background-size: cover;
   position: relative;
 }
+
 .center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .pos-contain {
   border: 1px solid cadetblue;
   top: 19%;
@@ -312,5 +315,47 @@ svg#clouds {
   left: 12%;
 }
 
-.celda{
-  border: 3px solid green;}
+.celda {
+  border: 3px solid green;
+}
+
+.btn-area {
+  width: 100%;
+  height: 100%;
+}
+
+.btn-trigo {
+  background-image: url(https://previews.123rf.com/images/ylivdesign/ylivdesign1709/ylivdesign170901282/85278272-icono-de-trigo-ilustraci%C3%B3n-de-dibujos-animados-de-icono-de-vector-de-trigo-para-web.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.btn-madera {
+  background-image: url(https://previews.123rf.com/images/izakowski/izakowski1401/izakowski140100055/24972833-ilustraci%C3%B3n-de-dibujos-animados-de-troncos-de-madera-o-stump-clip-art.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.btn-ladrillo {
+  background-image: url(https://previews.123rf.com/images/izakowski/izakowski1401/izakowski140100005/24827768-ilustraci%C3%B3n-de-dibujos-animados-de-la-vieja-pared-de-ladrillo-clip-art.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.btn-vidrio {
+  background-image: url(https://i0.pngocean.com/files/822/770/421/window-glass-drawing-clip-art-broken-glass.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.btn-piedra {
+  background-image: url(https://previews.123rf.com/images/kongvector/kongvector1711/kongvector171104298/90585671-pulgares-arriba-estilo-de-dibujos-animados-de-car%C3%A1cter-de-piedra.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
