@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +7,12 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('casa') casa: ElementRef;
   @ViewChild('btn1') btn1: ElementRef;
+  closeResult = '';
   title = 'TinyTowns';
-  butons=[];
+  contenido = '';
+  butons = [];
   material: any;
   A1: Number;
   A2: Number;
@@ -42,9 +46,9 @@ export class HomeComponent implements OnInit {
   btn14 = false;
   btn15 = false;
   btn16 = false;
-
+  porconstruir;
   matriz: any[3][3];
-  constructor() {}
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.matriz = new Array();
@@ -58,14 +62,12 @@ export class HomeComponent implements OnInit {
 
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
-        this.butons.push([i,j]);
+        this.butons.push([i, j]);
       }
     }
-    this.A1=this.matriz[0][0];
-
+    this.A1 = this.matriz[0][0];
   }
 
-  
   getImage(btn) {
     switch (btn) {
       case 1:
@@ -78,11 +80,10 @@ export class HomeComponent implements OnInit {
         return 'url(https://i0.pngocean.com/files/822/770/421/window-glass-drawing-clip-art-broken-glass.jpg)';
       case 5:
         return 'url(https://previews.123rf.com/images/kongvector/kongvector1711/kongvector171104298/90585671-pulgares-arriba-estilo-de-dibujos-animados-de-car%C3%A1cter-de-piedra.jpg)';
-   
-      case 10: 
-      return 'url(https://image.freepik.com/vector-gratis/casa-dos-pisos_1308-16176.jpg)';
 
-      }
+      case 10:
+        return 'url(https://image.freepik.com/vector-gratis/casa-dos-pisos_1308-16176.jpg)';
+    }
   }
 
   onclick(val, material) {
@@ -178,7 +179,7 @@ export class HomeComponent implements OnInit {
       default:
         break;
     }
-   // this.material = '';
+    // this.material = '';
   }
   getRandomMaterial(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -186,30 +187,41 @@ export class HomeComponent implements OnInit {
   lanzardados() {
     this.material = this.getRandomMaterial(1, 6);
   }
- 
-  validaciones(ren,col,material){
-    this.validarCasa(ren,col,material);
-    this.validarGranero(ren,col,material);
-  }
 
+  validaciones(ren, col, material) {
+    this.validarCasa(ren, col, material);
+    this.validarGranero(ren, col, material);
+  }
+  closemodal() {
+    this.material = this.porconstruir
+  }
   validarCasa(ren, col, material) {
-    let coordenadas=[];
+    let coordenadas = [];
     switch (material) {
       //madera
       case 1:
-        if(ren==0){
-        }else{
+        if (ren == 0) {
+        } else {
           if (this.matriz[ren - 1][col] == 2) {
             if (this.matriz[ren - 1][col + 1] == 4) {
               if (this.matriz[ren][col + 1] == 1) {
-                coordenadas=[[ren,col],[ren-1,col],[ren - 1,col + 1],[ren,col + 1]];
-                this.material=10;                 
-              }else{
-               coordenadas=[];
+                coordenadas = [
+                  [ren, col],
+                  [ren - 1, col],
+                  [ren - 1, col + 1],
+                  [ren, col + 1],
+                ];
+                this.porconstruir = 10;
+                this.contenido = '¿Deseas construir una casa?';
+                this.modalService.open(this.casa, {
+                  backdropClass: 'light-blue-backdrop',
+                });
+              } else {
+                coordenadas = [];
+              }
             }
           }
         }
-      }
         break;
       //trigo
       case 2:
@@ -220,19 +232,18 @@ export class HomeComponent implements OnInit {
           }
         }
         break;
-      //vidrio   
+      //vidrio
       case 4:
-        if(ren==3){
-        }else{
+        if (ren == 3) {
+        } else {
           if (this.matriz[ren + 1][col] == 1) {
             if (this.matriz[ren][col - 1] == 2) {
               if (this.matriz[ren + 1][col - 1] == 1) {
               }
             }
-  
           }
         }
-        
+
         break;
       default:
         break;
@@ -243,51 +254,45 @@ export class HomeComponent implements OnInit {
     switch (material) {
       //madera
       case 1:
-        if(ren==0){
-
-        }else{
-        if (this.matriz[ren - 1][col] == 2) {
-          if (this.matriz[ren - 1][col + 1] == 2) {
-            if (this.matriz[ren][col + 1] == 5) {
+        if (ren == 0) {
+        } else {
+          if (this.matriz[ren - 1][col] == 2) {
+            if (this.matriz[ren - 1][col + 1] == 2) {
+              if (this.matriz[ren][col + 1] == 5) {
+              }
             }
           }
         }
-      }
         break;
       //trigo
       case 2:
         if (this.matriz[ren][col + 1] == 2) {
           if (this.matriz[ren + 1][col] == 1) {
             if (this.matriz[ren + 1][col + 1] == 5) {
-
             }
           }
-        } else 
-          if (this.matriz[ren][col - 1] == 2 && ren<3) {
-           if (this.matriz[ren + 1][col] == 5) {
+        } else if (this.matriz[ren][col - 1] == 2 && ren < 3) {
+          if (this.matriz[ren + 1][col] == 5) {
             if (this.matriz[ren - 1][col - 1] == 1) {
             }
           }
         }
         break;
-      //piedra  
+      //piedra
       case 5:
-        if(ren==0){
-        }else{
-        if (this.matriz[ren - 1][col] == 2) {
-          if (this.matriz[ren - 1][col - 1] == 2) {
-            if (this.matriz[ren][col - 1] == 1) {
+        if (ren == 0) {
+        } else {
+          if (this.matriz[ren - 1][col] == 2) {
+            if (this.matriz[ren - 1][col - 1] == 2) {
+              if (this.matriz[ren][col - 1] == 1) {
+              }
             }
           }
-        }
         }
         break;
       default:
         break;
     }
-
-
   }
-
 }
 
