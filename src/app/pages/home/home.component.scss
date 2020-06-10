@@ -306,11 +306,13 @@ svg#clouds {
   align-items: center;
 }
 .pos-contain {
-  border: 1px solid cadetblue;
+  border: 2px solid cadetblue;
   top: 19%;
   position: absolute;
   left: 12%;
 }
 
-.celda{
-  border: 3px solid green;}
+.borde{
+  border: 20px solid #EAD909 ;
+  height: 250px;
+}

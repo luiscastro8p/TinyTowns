@@ -229,7 +229,7 @@ export class HomeComponent implements OnInit {
             }
           }
         } else if (this.matriz[ren][col - 1] == 2) {
-          if (this.matriz[ren + 1][col] == 5) {
+           if (this.matriz[ren + 1][col] == 5) {
             if (this.matriz[ren - 1][col - 1] == 1) {
               console.log("granero else");
             }
