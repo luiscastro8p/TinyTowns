@@ -31,122 +31,58 @@
         </div>
         <div class="row">
             <div class="col-3 h-col center celda p-1" (click)="onclick(1,material)">
-                <button *ngIf="A1 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn1"></button>
-                <button *ngIf="A1 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn1"></button>
-                <button *ngIf="A1 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn1"></button>
-                <button *ngIf="A1 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn1"></button>
-                <button *ngIf="A1 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn1"></button>
+                <button [ngStyle]="{'background-image': getImage(A1)}" class="btn btn-success btn-area btn-image" ></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(2,material)">
-                <button *ngIf="A2 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn2"></button>
-                <button *ngIf="A2 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn2"></button>
-                <button *ngIf="A2 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn2"></button>
-                <button *ngIf="A2 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn2"></button>
-                <button *ngIf="A2 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn2"></button>
+                <button [ngStyle]="{'background-image': getImage(A2)}"  class="btn btn-success btn-area btn-image" [disabled]="btn2"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(3,material)">
-                <button *ngIf="A3 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn3"></button>
-                <button *ngIf="A3 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn3"></button>
-                <button *ngIf="A3 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn3"></button>
-                <button *ngIf="A3 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn3"></button>
-                <button *ngIf="A3 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn3"></button>
+                <button [ngStyle]="{'background-image': getImage(A3)}"class="btn btn-success btn-area btn-image" [disabled]="btn3"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(4,material)">
-                <button *ngIf="A4 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn4"></button>
-                <button *ngIf="A4 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn4"></button>
-                <button *ngIf="A4 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn4"></button>
-                <button *ngIf="A4 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn4"></button>
-                <button *ngIf="A4 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn4"></button>
+                <button [ngStyle]="{'background-image': getImage(A4)}" class="btn btn-success btn-area btn-image" [disabled]="btn4"></button>
             </div>
         </div>
         <div class="row">
             <div class="col-3 h-col center celda p-1" (click)="onclick(5,material)">
-                <button *ngIf="B1 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn5"></button>
-                <button *ngIf="B1 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn5"></button>
-                <button *ngIf="B1 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn5"></button>
-                <button *ngIf="B1 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn5"></button>
-                <button *ngIf="B1 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn5"></button>
+                <button [ngStyle]="{'background-image': getImage(B1)}" class="btn btn-success btn-area btn-image" [disabled]="btn5"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(6,material)">
-                <button *ngIf="B2 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn6"></button>
-                <button *ngIf="B2 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn6"></button>
-                <button *ngIf="B2 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn6"></button>
-                <button *ngIf="B2 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn6"></button>
-                <button *ngIf="B2 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn6"></button>
+                <button [ngStyle]="{'background-image': getImage(B2)}" class="btn btn-success btn-area btn-image" [disabled]="btn6"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(7,material)">
-                <button *ngIf="B3 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn7"></button>
-                <button *ngIf="B3 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn7"></button>
-                <button *ngIf="B3 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn7"></button>
-                <button *ngIf="B3 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn7"></button>
-                <button *ngIf="B3 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn7"></button>
+                <button [ngStyle]="{'background-image': getImage(B3)}" class="btn btn-success btn-area btn-image" [disabled]="btn7"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(8,material)">
-                <button *ngIf="B4 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn8"></button>
-                <button *ngIf="B4 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn8"></button>
-                <button *ngIf="B4 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn8"></button>
-                <button *ngIf="B4 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn8"></button>
-                <button *ngIf="B4 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn8"></button>
+                <button [ngStyle]="{'background-image': getImage(B4)}" class="btn btn-success btn-area btn-image" [disabled]="btn8"></button>
             </div>
         </div>
         <div class="row">
             <div class="col-3 h-col center celda p-1" (click)="onclick(9,material)">
-                <button *ngIf="C1 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn9"></button>
-                <button *ngIf="C1 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn9"></button>
-                <button *ngIf="C1 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn9"></button>
-                <button *ngIf="C1 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn9"></button>
-                <button *ngIf="C1 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn9"></button>
+                <button [ngStyle]="{'background-image': getImage(C1)}" class="btn btn-success btn-area btn-image" [disabled]="btn9"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(10,material)">
-                <button *ngIf="C2 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn10"></button>
-                <button *ngIf="C2 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn10"></button>
-                <button *ngIf="C2 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn10"></button>
-                <button *ngIf="C2 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn10"></button>
-                <button *ngIf="C2 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn10"></button>
+                <button [ngStyle]="{'background-image': getImage(C2)}" class="btn btn-success btn-area btn-image" [disabled]="btn10"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(11,material)">
-                <button *ngIf="C3 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn11"></button>
-                <button *ngIf="C3 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn11"></button>
-                <button *ngIf="C3 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn11"></button>
-                <button *ngIf="C3 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn11"></button>
-                <button *ngIf="C3 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn11"></button>
+                <button [ngStyle]="{'background-image': getImage(C3)}" class="btn btn-success btn-area btn-image" [disabled]="btn11"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(12,material)">
-                <button *ngIf="C4 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn12"></button>
-                <button *ngIf="C4 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn12"></button>
-                <button *ngIf="C4 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn12"></button>
-                <button *ngIf="C4 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn12"></button>
-                <button *ngIf="C4 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn12"></button>
+                <button [ngStyle]="{'background-image': getImage(C4)}" class="btn btn-success btn-area btn-image" [disabled]="btn12"></button>
             </div>
         </div>
         <div class="row">
             <div class="col-3 h-col center celda p-1" (click)="onclick(13,material)">
-                <button *ngIf="D1 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn13"></button>
-                <button *ngIf="D1 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn13"></button>
-                <button *ngIf="D1 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn13"></button>
-                <button *ngIf="D1 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn13"></button>
-                <button *ngIf="D1 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn13"></button>
+                <button [ngStyle]="{'background-image': getImage(D1)}" class="btn btn-success btn-area btn-image" [disabled]="btn13"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(14,material)">
-                <button *ngIf="D2 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn14"></button>
-                <button *ngIf="D2 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn14"></button>
-                <button *ngIf="D2 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn14"></button>
-                <button *ngIf="D2 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn14"></button>
-                <button *ngIf="D2 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn14"></button>
+                <button [ngStyle]="{'background-image': getImage(D2)}" class="btn btn-success btn-area btn-image" [disabled]="btn14"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(15,material)">
-                <button *ngIf="D3 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn15"></button>
-                <button *ngIf="D3 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn15"></button>
-                <button *ngIf="D3 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn15"></button>
-                <button *ngIf="D3 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn15"></button>
-                <button *ngIf="D3 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn15"></button>
+                <button [ngStyle]="{'background-image': getImage(D3)}" class="btn btn-success btn-area btn-image" [disabled]="btn15"></button>
             </div>
             <div class="col-3 h-col center celda p-1" (click)="onclick(16,material)">
-                <button *ngIf="D4 == 1" class="btn btn-success btn-area btn-madera" [disabled]="btn16"></button>
-                <button *ngIf="D4 == 2" class="btn btn-success btn-area btn-trigo" [disabled]="btn16"></button>
-                <button *ngIf="D4 == 3" class="btn btn-success btn-area btn-ladrillo" [disabled]="btn16"></button>
-                <button *ngIf="D4 == 4" class="btn btn-success btn-area btn-vidrio" [disabled]="btn16"></button>
-                <button *ngIf="D4 == 5" class="btn btn-success btn-area btn-piedra" [disabled]="btn16"></button>
+                <button [ngStyle]="{'background-image': getImage(D4)}" class="btn btn-success btn-area btn-image" [disabled]="btn16"></button>
             </div>
         </div>
     </div>

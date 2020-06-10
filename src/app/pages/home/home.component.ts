@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('btn1') btn1: ElementRef;
   title = 'TinyTowns';
   butons=[];
   material: any;
@@ -25,7 +26,7 @@ export class HomeComponent implements OnInit {
   D2: Number;
   D3: Number;
   D4: Number;
-  btn1 = false;
+  //btn1 = false;
   btn2 = false;
   btn3 = false;
   btn4 = false;
@@ -60,6 +61,28 @@ export class HomeComponent implements OnInit {
         this.butons.push([i,j]);
       }
     }
+    this.A1=this.matriz[0][0];
+
+  }
+
+  
+  getImage(btn) {
+    switch (btn) {
+      case 1:
+        return 'url(https://previews.123rf.com/images/izakowski/izakowski1401/izakowski140100055/24972833-ilustración-de-dibujos-animados-de-troncos-de-madera-o-stump-clip-art.jpg)';
+      case 2:
+        return 'url(https://previews.123rf.com/images/ylivdesign/ylivdesign1709/ylivdesign170901282/85278272-icono-de-trigo-ilustración-de-dibujos-animados-de-icono-de-vector-de-trigo-para-web.jpg)';
+      case 3:
+        return 'url(https://previews.123rf.com/images/izakowski/izakowski1401/izakowski140100005/24827768-ilustración-de-dibujos-animados-de-la-vieja-pared-de-ladrillo-clip-art.jpg)';
+      case 4:
+        return 'url(https://i0.pngocean.com/files/822/770/421/window-glass-drawing-clip-art-broken-glass.jpg)';
+      case 5:
+        return 'url(https://previews.123rf.com/images/kongvector/kongvector1711/kongvector171104298/90585671-pulgares-arriba-estilo-de-dibujos-animados-de-car%C3%A1cter-de-piedra.jpg)';
+   
+      case 10: 
+      return 'url(https://image.freepik.com/vector-gratis/casa-dos-pisos_1308-16176.jpg)';
+
+      }
   }
 
   onclick(val, material) {
@@ -70,6 +93,7 @@ export class HomeComponent implements OnInit {
         this.validaciones(0, 0, material);
         break;
       case 2:
+        console.log(this.getImage(this.A1));
         this.matriz[0][1] = material;
         this.A2 = material;
         this.validaciones(0, 1, material);
@@ -179,17 +203,9 @@ export class HomeComponent implements OnInit {
             if (this.matriz[ren - 1][col + 1] == 4) {
               if (this.matriz[ren][col + 1] == 1) {
                 coordenadas=[[ren,col],[ren-1,col],[ren - 1,col + 1],[ren,col + 1]];
-                  for(let i=0; i<coordenadas.length;i++){
-                    for(let j=0;j<this.butons.length;j++){
-                    if(coordenadas[i]==this.butons[j]){
-                      this.butons[j].push(true);
-                      console.log("entro");
-                    }
-                }
-              
-               }
+                this.material=10;                 
               }else{
-              //  coordenadas=[];
+               coordenadas=[];
             }
           }
         }
