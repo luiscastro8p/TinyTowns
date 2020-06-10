@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   title = 'TinyTowns';
+  butons=[];
   material: any;
   A1: Number;
   A2: Number;
@@ -25,8 +26,24 @@ export class HomeComponent implements OnInit {
   D3: Number;
   D4: Number;
   btn1 = false;
+  btn2 = false;
+  btn3 = false;
+  btn4 = false;
+  btn5 = false;
+  btn6 = false;
+  btn7 = false;
+  btn8 = false;
+  btn9 = false;
+  btn10 = false;
+  btn11 = false;
+  btn12 = false;
+  btn13 = false;
+  btn14 = false;
+  btn15 = false;
+  btn16 = false;
+
   matriz: any[3][3];
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
     this.matriz = new Array();
@@ -36,128 +53,108 @@ export class HomeComponent implements OnInit {
         row.push(0);
       }
       this.matriz.push(row);
+    }
 
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
+        this.butons.push([i,j]);
+      }
     }
   }
 
   onclick(val, material) {
     switch (val) {
       case 1:
-        this.matriz[0][0] = material
+        this.matriz[0][0] = material;
         this.A1 = material;
-        this.validarCasa(0, 0, material);
-        this.validarGranero(0, 0, material);
-
+        this.validaciones(0, 0, material);
         break;
       case 2:
-        this.matriz[0][1] = material
-        this.validarCasa(0, 1, material);
-        this.validarGranero(0, 1, material);
-
+        this.matriz[0][1] = material;
         this.A2 = material;
+        this.validaciones(0, 1, material);
         break;
       case 3:
-        this.matriz[0][2] = material
+        this.matriz[0][2] = material;
         this.A3 = material;
-        this.validarCasa(0, 2, material);
-        this.validarGranero(0, 2, material);
-
+        this.validaciones(0, 2, material);
         break;
       case 4:
-        this.matriz[0][3] = material
+        this.matriz[0][3] = material;
         this.A4 = material;
-        this.validarCasa(0, 3, material);
-        this.validarGranero(0, 3, material);
-
+        this.validaciones(0, 3, material);
 
         break;
       case 5:
-        this.matriz[1][0] = material
-        this.validarCasa(1, 0, material);
-        this.validarGranero(1, 0, material);
-
+        this.matriz[1][0] = material;
+        this.validaciones(1, 0, material);
         this.B1 = material;
         break;
       case 6:
-        this.matriz[1][1] = material
-        this.validarCasa(1, 1, material);
-        this.validarGranero(1, 1, material);
+        this.matriz[1][1] = material;
+        this.validaciones(1, 1, material);
 
         this.B2 = material;
         break;
       case 7:
-        this.matriz[1][2] = material
-        this.validarCasa(1, 2, material);
-        this.validarGranero(1, 2, material);
+        this.matriz[1][2] = material;
+        this.validaciones(1, 2, material);
 
         this.B3 = material;
         break;
       case 8:
-        this.matriz[1][3] = material
-        this.validarCasa(1, 3, material);
-        this.validarGranero(1, 3, material);
+        this.matriz[1][3] = material;
+        this.validaciones(1, 3, material);
 
         this.B4 = material;
         break;
       case 9:
-        this.matriz[2][0] = material
-        this.validarCasa(2, 0, material);
-        this.validarGranero(2, 0, material);
-
+        this.matriz[2][0] = material;
+        this.validaciones(2, 0, material);
         this.C1 = material;
         break;
       case 10:
-        this.matriz[2][1] = material
-        this.validarCasa(2, 1, material);
-        this.validarGranero(2, 3, material);
-
+        this.matriz[2][1] = material;
+        this.validaciones(2, 1, material);
         this.C2 = material;
         break;
       case 11:
-        this.matriz[2][2] = material
-        this.validarCasa(2, 2, material);
-        this.validarGranero(2, 3, material);
-
+        this.matriz[2][2] = material;
+        this.validaciones(2, 2, material);
         this.C3 = material;
         break;
       case 12:
-        this.matriz[2][3] = material
-        this.validarCasa(2, 3, material);
-        this.validarGranero(2, 3, material);
-
+        this.matriz[2][3] = material;
+        this.validaciones(2, 3, material);
         this.C4 = material;
         break;
       case 13:
-        this.matriz[3][0] = material
-        this.validarCasa(3, 0, material);
-        this.validarGranero(3, 0, material);
-
+        this.matriz[3][0] = material;
+        this.validaciones(3, 0, material);
         this.D1 = material;
         break;
       case 14:
-        this.matriz[3][1] = material
-        this.validarCasa(3, 1, material);
-        this.validarGranero(3, 1, material);
-
+        this.matriz[3][1] = material;
+        this.validaciones(3, 1, material);
         this.D2 = material;
         break;
       case 15:
-        this.matriz[3][2] = material
-        this.validarCasa(3, 2, material);
-        this.validarGranero(3, 2, material);
+        this.matriz[3][2] = material;
+        this.validaciones(3, 2, material);
+
         this.D3 = material;
         break;
       case 16:
-        this.matriz[3][3] = material
-        this.validarCasa(3, 3, material);
-        this.validarGranero(3, 3, material);
+        this.matriz[3][3] = material;
+        this.validaciones(3, 3, material);
+
         this.D4 = material;
         break;
 
       default:
         break;
     }
-    this.material = '';
+   // this.material = '';
   }
   getRandomMaterial(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -165,42 +162,61 @@ export class HomeComponent implements OnInit {
   lanzardados() {
     this.material = this.getRandomMaterial(1, 6);
   }
+ 
+  validaciones(ren,col,material){
+    this.validarCasa(ren,col,material);
+    this.validarGranero(ren,col,material);
+  }
+
   validarCasa(ren, col, material) {
-    console.log(this.matriz);
+    let coordenadas=[];
     switch (material) {
       //madera
       case 1:
-        if (this.matriz[ren - 1][col] == 2) {
-          if (this.matriz[ren - 1][col + 1] == 4) {
-            if (this.matriz[ren][col + 1] == 1) {
-              console.log("casita case 1");
+        if(ren==0){
+        }else{
+          if (this.matriz[ren - 1][col] == 2) {
+            if (this.matriz[ren - 1][col + 1] == 4) {
+              if (this.matriz[ren][col + 1] == 1) {
+                coordenadas=[[ren,col],[ren-1,col],[ren - 1,col + 1],[ren,col + 1]];
+                  for(let i=0; i<coordenadas.length;i++){
+                    for(let j=0;j<this.butons.length;j++){
+                    if(coordenadas[i]==this.butons[j]){
+                      this.butons[j].push(true);
+                      console.log("entro");
+                    }
+                }
+              
+               }
+              }else{
+              //  coordenadas=[];
             }
           }
         }
+      }
         break;
       //trigo
       case 2:
         if (this.matriz[ren][col + 1] == 4) {
-          console.log(ren, col);
           if (this.matriz[ren + 1][col] == 1) {
             if (this.matriz[ren + 1][col + 1] == 1) {
-              console.log("casita case 2");
-
             }
           }
         }
         break;
       //vidrio   
       case 4:
-        if (this.matriz[ren + 1][col] == 1) {
-          if (this.matriz[ren][col - 1] == 2) {
-            if (this.matriz[ren + 1][col - 1] == 1) {
-              console.log("casita case 4");
-
+        if(ren==3){
+        }else{
+          if (this.matriz[ren + 1][col] == 1) {
+            if (this.matriz[ren][col - 1] == 2) {
+              if (this.matriz[ren + 1][col - 1] == 1) {
+              }
             }
+  
           }
-
         }
+        
         break;
       default:
         break;
@@ -211,41 +227,43 @@ export class HomeComponent implements OnInit {
     switch (material) {
       //madera
       case 1:
+        if(ren==0){
+
+        }else{
         if (this.matriz[ren - 1][col] == 2) {
           if (this.matriz[ren - 1][col + 1] == 2) {
             if (this.matriz[ren][col + 1] == 5) {
-              console.log("granero bb");
             }
           }
         }
+      }
         break;
       //trigo
       case 2:
         if (this.matriz[ren][col + 1] == 2) {
           if (this.matriz[ren + 1][col] == 1) {
             if (this.matriz[ren + 1][col + 1] == 5) {
-              console.log("granero normal");
 
             }
           }
-        } else if (this.matriz[ren][col - 1] == 2) {
+        } else 
+          if (this.matriz[ren][col - 1] == 2 && ren<3) {
            if (this.matriz[ren + 1][col] == 5) {
             if (this.matriz[ren - 1][col - 1] == 1) {
-              console.log("granero else");
             }
           }
         }
         break;
       //piedra  
       case 5:
+        if(ren==0){
+        }else{
         if (this.matriz[ren - 1][col] == 2) {
           if (this.matriz[ren - 1][col - 1] == 2) {
             if (this.matriz[ren][col - 1] == 1) {
-              console.log("grenero");
-
             }
           }
-
+        }
         }
         break;
       default:
@@ -254,5 +272,6 @@ export class HomeComponent implements OnInit {
 
 
   }
+
 }
 
