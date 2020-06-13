@@ -1,15 +1,16 @@
-<div>
-    <!-- Toolbar -->
-    <div class="toolbar" role="banner">
-        <img width="60" alt="Angular Logo" src="../../../assets/img/logo.png" />
-        <span style="width: 81px;">Tiny Towns</span>
-        <div class="spacer"></div>
-        <div class="w-100 text-center">
-            <Button class="btn btn-success" (click)="lanzardados()">Lanzar Dado</Button>
-        </div>
+<!-- Toolbar -->
+<div class="toolbar1" role="banner">
+    <img width="60" alt="Angular Logo" src="../../../assets/img/logo.png" />
+    <span style="width: 81px;">Tiny Towns</span>
+    <div class="spacer"></div>
+    <div class="w-100 text-center">
+        <Button class="btn btn-success" (click)="lanzardados()">Lanzar Dado</Button>
     </div>
-    <div style="background-color: aqua;">
-        <div class="container text-center pos-contain">
+</div>
+
+<div class="main-container text-center  ">
+    <div class="row">
+        <div class="col-2">
             <div style="height: 100px;">
                 <p>Selecciona un material:
                     <b *ngIf="material === 1">Madera</b>
@@ -18,98 +19,112 @@
                     <b *ngIf="material === 4">Vidrio</b>
                     <b *ngIf="material === 5">Piedra</b>
                 </p>
-                <div *ngIf="material === 1" style="height: 30px;width: 30px;background: chocolate;">
+                <div *ngIf="material === 1">
+                    <img alt='madera' src="../../../assets/img/Materiales/madera.png" />
                 </div>
-                <div *ngIf="material === 2" style="height: 30px;width: 30px;background: yellow;">
+                <div *ngIf="material === 2">
+                    <img alt='madera' src="../../../assets/img/Materiales/Trigo.png" />
                 </div>
-                <div *ngIf="material === 3" style="height: 30px;width: 30px;background: red;">
+                <div *ngIf="material === 3">
+                    <img alt='madera' src="../../../assets/img/Materiales/Ladrillo.png" />
+
                 </div>
-                <div *ngIf="material === 4" style="height: 30px;width: 30px;background: aqua;">
+                <div *ngIf="material === 4">
+                    <img alt='madera' src="../../../assets/img/Materiales/Vidrio.png" />
+
                 </div>
-                <div *ngIf="material === 5" style="height: 30px;width: 30px;background: gray;">
+                <div *ngIf="material === 5">
+                    <img alt='madera' src="../../../assets/img/Materiales/Piedra.png" />
+
                 </div>
             </div>
-            <div class="row">
+        </div>
+        <div class="col-8">
+            <div class="row mt-5">
                 <div class="col-3 h-col center celda p-1" (click)="onclick(1,material)">
                     <button [ngStyle]="{'background-image': getImage(A1)}"
-                        class="btn btn-success btn-area btn-image"></button>
+                        class="btn btn-fondo btn-area btn-image"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(2,material)">
-                    <button [ngStyle]="{'background-image': getImage(A2)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(A2)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn2"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(3,material)">
-                    <button [ngStyle]="{'background-image': getImage(A3)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(A3)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn3"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(4,material)">
-                    <button [ngStyle]="{'background-image': getImage(A4)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(A4)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn4"></button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-3 h-col center celda p-1" (click)="onclick(5,material)">
-                    <button [ngStyle]="{'background-image': getImage(B1)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(B1)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn5"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(6,material)">
-                    <button [ngStyle]="{'background-image': getImage(B2)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(B2)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn6"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(7,material)">
-                    <button [ngStyle]="{'background-image': getImage(B3)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(B3)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn7"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(8,material)">
-                    <button [ngStyle]="{'background-image': getImage(B4)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(B4)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn8"></button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-3 h-col center celda p-1" (click)="onclick(9,material)">
-                    <button [ngStyle]="{'background-image': getImage(C1)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(C1)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn9"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(10,material)">
-                    <button [ngStyle]="{'background-image': getImage(C2)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(C2)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn10"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(11,material)">
-                    <button [ngStyle]="{'background-image': getImage(C3)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(C3)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn11"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(12,material)">
-                    <button [ngStyle]="{'background-image': getImage(C4)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(C4)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn12"></button>
                 </div>
             </div>
             <div class="row">
                 <div class="col-3 h-col center celda p-1" (click)="onclick(13,material)">
-                    <button [ngStyle]="{'background-image': getImage(D1)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(D1)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn13"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(14,material)">
-                    <button [ngStyle]="{'background-image': getImage(D2)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(D2)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn14"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(15,material)">
-                    <button [ngStyle]="{'background-image': getImage(D3)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(D3)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn15"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(16,material)">
-                    <button [ngStyle]="{'background-image': getImage(D4)}" class="btn btn-success btn-area btn-image"
+                    <button [ngStyle]="{'background-image': getImage(D4)}" class="btn btn-fondo btn-area btn-image"
                         [disabled]="btn16"></button>
                 </div>
             </div>
         </div>
-        <svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084"
-            height="485.677" viewBox="0 0 2611.084 485.677">
-            <path id="Path_39" data-name="Path 39"
-                d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
-                transform="translate(142.69 -634.312)" fill="#eee" />
-        </svg>
+        <div class="col-2">
+            <img alt='info' src="../../../assets/info.gif" width="132px" (click)="modalEdificios(edificios)"
+                style="cursor: pointer;" />
+        </div>
     </div>
 </div>
+<svg id="clouds" alt="Gray Clouds Background" xmlns="http://www.w3.org/2000/svg" width="2611.084" height="485.677"
+    viewBox="0 0 2611.084 485.677">
+    <path id="Path_39" data-name="Path 39"
+        d="M2379.709,863.793c10-93-77-171-168-149-52-114-225-105-264,15-75,3-140,59-152,133-30,2.83-66.725,9.829-93.5,26.25-26.771-16.421-63.5-23.42-93.5-26.25-12-74-77-130-152-133-39-120-212-129-264-15-54.084-13.075-106.753,9.173-138.488,48.9-31.734-39.726-84.4-61.974-138.487-48.9-52-114-225-105-264,15a162.027,162.027,0,0,0-103.147,43.044c-30.633-45.365-87.1-72.091-145.206-58.044-52-114-225-105-264,15-75,3-140,59-152,133-53,5-127,23-130,83-2,42,35,72,70,86,49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33,61.112,8.015,113.854-5.72,150.492-29.764a165.62,165.62,0,0,0,110.861-3.236c47,94,178,113,251,33,31.385,4.116,60.563,2.495,86.487-3.311,25.924,5.806,55.1,7.427,86.488,3.311,73,80,204,61,251-33a165.625,165.625,0,0,0,120,0c51,13,108,15,157-5a147.188,147.188,0,0,0,33.5-18.694,147.217,147.217,0,0,0,33.5,18.694c49,20,106,18,157,5a165.625,165.625,0,0,0,120,0c47,94,178,113,251,33C2446.709,1093.793,2554.709,922.793,2379.709,863.793Z"
+        transform="translate(142.69 -634.312)" fill="#eee" />
+</svg>
 
 
 <ng-template #casa let-modal>
@@ -125,4 +140,24 @@
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');closemodal()">Si</button>
     </div>
+</ng-template>
+
+<ng-template #edificios let-modal style="max-width: 1554px;">
+    <div class="modal-header">
+        <img alt='foto' src="../../../assets/img/logo.png" width="60" />
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" style="height: 850px;">
+        <div class="row" style="overflow: scroll;height: 833px;">
+            <div class=" m-2 center" *ngFor="let item of imagenes" style="    width: 266px;">
+                <img class="card-img-top" [src]="item.img" alt="Card image cap" style='width:125px'>
+                <p><b>{{item.text}}</b><br>
+                    {{item.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+
 </ng-template>
