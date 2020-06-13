@@ -289,8 +289,9 @@ svg#clouds {
 }
 
 .h-col {
-  height: 120px;
+  height: 200px;
   cursor: pointer;
+
 }
 
 .bg-image {
@@ -310,13 +311,13 @@ svg#clouds {
 
 .pos-contain {
   border: 2px solid cadetblue;
-  top: 19%;
+  top: 6%;
   position: absolute;
   left: 12%;
 }
 
 .celda {
-  border: 3px solid green;
+  // border: 3px solid green;
 }
 
 .btn-area {
@@ -324,10 +325,39 @@ svg#clouds {
   height: 100%;
 }
 
-.btn-image{
+.btn-image {
   background-repeat: no-repeat;
-  background-size: 200px;
+  background-size: 199px;
+  background-position: center;
+  border-radius: 30px;
+}
+
+.toolbar1 {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: #1976d2;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-fondo {
+  background-image: url(../../../assets/img/fondo.jpg);
+  background-repeat: no-repeat;
+  background-size: 275px;
   background-position: center;
 }
 
+.madera {
+  background-image: url('../../../assets/img/Materiales/madera.png');
+}
 
+.modal-xl {
+  max-width: 1406px !important;
+}
+
+@media (min-width: 992px) {
+  .modal-lg .modal-xl {
+    max-width: 1406px !important;
+  }
+}
