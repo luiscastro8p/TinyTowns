@@ -54,133 +54,7 @@ export class HomeComponent implements OnInit {
   btn16 = false;
   porconstruir;
   matriz: any[3][3];
-  imagenes = [
-    {
-      img: '../../../assets/img/Edificios/invernadero.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/abadia.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/almacen.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/asilo.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/banco.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/cabana.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/capilla.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/centroComercial.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/claustro.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/cobertizo.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/fabrica.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/fuente.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/granero.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/granja.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/huerto.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/mercado.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/molinoPiedra.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/pasteleria.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/posada.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/pozo.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/sala de fiestas.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/sastre.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/taverna.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/teatro.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-    {
-      img: '../../../assets/img/Edificios/templo.png',
-      text: 'casa',
-      description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
-    },
-  ];
+  imagenes = require('./imagenes.json');
   constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
@@ -392,9 +266,8 @@ export class HomeComponent implements OnInit {
   validaciones(ren, col, material) {
     this.validarInvernadero(ren, col, material);
     this.validarGranero(ren, col, material);
-    this.validarGranja(ren,col,material);
-    this.validarHuerto(ren,col,material);
-
+    this.validarGranja(ren, col, material);
+    this.validarHuerto(ren, col, material);
 
     this.limpiarCasillas();
 
@@ -704,14 +577,18 @@ export class HomeComponent implements OnInit {
         break;
       //vidrio,
       case 4:
-          if (ren<3 && this.matriz[ren + 1][col] == 2 && this.matriz[ren][col + 1] == 1 && this.matriz[ren + 1][col + 1] == 1) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren + 1, col]);
-            coordenadas.push([ren, col + 1]);
-            coordenadas.push([ren + 1, col + 1]);
-            this.modalConstruir(24);
-            this.coordenadasConstruccion = coordenadas;
-
+        if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 2 &&
+          this.matriz[ren][col + 1] == 1 &&
+          this.matriz[ren + 1][col + 1] == 1
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren, col + 1]);
+          coordenadas.push([ren + 1, col + 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
         }
 
         break;
@@ -727,9 +604,13 @@ export class HomeComponent implements OnInit {
       case 1:
         if (ren == 0) {
         } else {
-          if (this.matriz[ren - 1][col] == 2 && this.matriz[ren][col + 1] == 3 && this.matriz[ren - 1][col  + 1] == 2) {
+          if (
+            this.matriz[ren - 1][col] == 2 &&
+            this.matriz[ren][col + 1] == 3 &&
+            this.matriz[ren - 1][col + 1] == 2
+          ) {
             coordenadas.push([ren, col]);
-            coordenadas.push([ren -1, col]);
+            coordenadas.push([ren - 1, col]);
             coordenadas.push([ren, col + 1]);
             coordenadas.push([ren - 1, col + 1]);
             this.modalConstruir(21);
@@ -737,28 +618,41 @@ export class HomeComponent implements OnInit {
           }
         }
         break;
-        //trigo
+      //trigo
       case 2:
-         if (ren < 3 && this.matriz[ren + 1][col] == 1 && this.matriz[ren][col + 1] == 2 && this.matriz[ren + 1][col + 1] == 3) {
+        if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 1 &&
+          this.matriz[ren][col + 1] == 2 &&
+          this.matriz[ren + 1][col + 1] == 3
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren + 1, col]);
           coordenadas.push([ren, col + 1]);
           coordenadas.push([ren + 1, col + 1]);
           this.modalConstruir(21);
           this.coordenadasConstruccion = coordenadas;
-        }else 
-         if(ren<3 && this.matriz[ren + 1][col] == 3 && this.matriz[ren + 1][col - 1] == 1 && this.matriz[ren][col - 1] == 2) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren + 1, col]);
-            coordenadas.push([ren + 1, col - 1]);
-            coordenadas.push([ren, col - 1]);
-            this.modalConstruir(21);
-            this.coordenadasConstruccion = coordenadas;
-          } 
+        } else if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 3 &&
+          this.matriz[ren + 1][col - 1] == 1 &&
+          this.matriz[ren][col - 1] == 2
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren + 1, col - 1]);
+          coordenadas.push([ren, col - 1]);
+          this.modalConstruir(21);
+          this.coordenadasConstruccion = coordenadas;
+        }
         break;
       //ladrillo
       case 3:
-        if (this.matriz[ren][col -1 ] == 1 && this.matriz[ren - 1][col] == 2 && this.matriz[ren - 1][col -1 ] == 2 ) {
+        if (
+          this.matriz[ren][col - 1] == 1 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren - 1][col - 1] == 2
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           coordenadas.push([ren - 1, col]);
@@ -767,56 +661,73 @@ export class HomeComponent implements OnInit {
           this.coordenadasConstruccion = coordenadas;
         }
         break;
-     
-    
+
       default:
         break;
     }
   }
-  
+
   validarGranja(ren, col, material) {
     let coordenadas = [];
     switch (material) {
       //madera
       case 1:
-         
-          if ( ren>0 && this.matriz[ren - 1][col] == 2 && this.matriz[ren-1][col + 1] == 2 && this.matriz[ren ][col  + 1] == 1) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren -1, col]);
-            coordenadas.push([ren-1, col + 1]);
-            coordenadas.push([ren , col + 1]);
-            this.modalConstruir(22);
-            this.coordenadasConstruccion = coordenadas;
-          } else if ( ren>0 && this.matriz[ren - 1][col] == 2 && this.matriz[ren-1][col - 1] == 2 && this.matriz[ren ][col  - 1] == 1) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren -1, col]);
-            coordenadas.push([ren-1, col - 1]);
-            coordenadas.push([ren , col - 1]);
-            this.modalConstruir(22);
-            this.coordenadasConstruccion = coordenadas;
-          }
-        
+        if (
+          ren > 0 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren - 1][col + 1] == 2 &&
+          this.matriz[ren][col + 1] == 1
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren - 1, col]);
+          coordenadas.push([ren - 1, col + 1]);
+          coordenadas.push([ren, col + 1]);
+          this.modalConstruir(22);
+          this.coordenadasConstruccion = coordenadas;
+        } else if (
+          ren > 0 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren - 1][col - 1] == 2 &&
+          this.matriz[ren][col - 1] == 1
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren - 1, col]);
+          coordenadas.push([ren - 1, col - 1]);
+          coordenadas.push([ren, col - 1]);
+          this.modalConstruir(22);
+          this.coordenadasConstruccion = coordenadas;
+        }
+
         break;
-        //trigo
+      //trigo
       case 2:
-         if (ren < 3 && this.matriz[ren + 1][col] == 1 && this.matriz[ren][col + 1] == 2 && this.matriz[ren + 1][col + 1] == 1) {
+        if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 1 &&
+          this.matriz[ren][col + 1] == 2 &&
+          this.matriz[ren + 1][col + 1] == 1
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren + 1, col]);
           coordenadas.push([ren, col + 1]);
           coordenadas.push([ren + 1, col + 1]);
           this.modalConstruir(22);
           this.coordenadasConstruccion = coordenadas;
-        }else 
-         if(ren<3 && this.matriz[ren + 1][col] == 1 && this.matriz[ren + 1][col - 1] == 1 && this.matriz[ren][col - 1] == 2) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren + 1, col]);
-            coordenadas.push([ren + 1, col -1 ]);
-            coordenadas.push([ren, col - 1]);
-            this.modalConstruir(22);
-            this.coordenadasConstruccion = coordenadas;
-          } 
+        } else if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 1 &&
+          this.matriz[ren + 1][col - 1] == 1 &&
+          this.matriz[ren][col - 1] == 2
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren + 1, col - 1]);
+          coordenadas.push([ren, col - 1]);
+          this.modalConstruir(22);
+          this.coordenadasConstruccion = coordenadas;
+        }
         break;
-     
+
       default:
         break;
     }
@@ -827,27 +738,39 @@ export class HomeComponent implements OnInit {
     switch (material) {
       //madera
       case 1:
-        if (ren > 0  && this.matriz[ren - 1][col] == 2 && this.matriz[ren][col - 1] == 2 && this.matriz[ren - 1][col - 1] == 5) {
-         coordenadas.push([ren, col]);
-         coordenadas.push([ren - 1, col]);
-         coordenadas.push([ren, col - 1]);
-         coordenadas.push([ren - 1, col - 1]);
-         this.modalConstruir(23);
-         this.coordenadasConstruccion = coordenadas;
-       }
-       break;
-   
+        if (
+          ren > 0 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren][col - 1] == 2 &&
+          this.matriz[ren - 1][col - 1] == 5
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren - 1, col]);
+          coordenadas.push([ren, col - 1]);
+          coordenadas.push([ren - 1, col - 1]);
+          this.modalConstruir(23);
+          this.coordenadasConstruccion = coordenadas;
+        }
+        break;
+
       //Trigo
       case 2:
-        if (this.matriz[ren][col -1 ] == 1 && this.matriz[ren - 1][col] == 2 && this.matriz[ren - 1][col -1 ] == 2 ) {
+        if (
+          this.matriz[ren][col - 1] == 1 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren - 1][col - 1] == 2
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           coordenadas.push([ren - 1, col]);
           coordenadas.push([ren - 1, col - 1]);
           this.modalConstruir(23);
           this.coordenadasConstruccion = coordenadas;
-        }else 
-        if (this.matriz[ren][col -1 ] == 1 && this.matriz[ren - 1][col] == 2 && this.matriz[ren - 1][col -1 ] == 2 ) {
+        } else if (
+          this.matriz[ren][col - 1] == 1 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren - 1][col - 1] == 2
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           coordenadas.push([ren - 1, col]);
@@ -856,26 +779,29 @@ export class HomeComponent implements OnInit {
           this.coordenadasConstruccion = coordenadas;
         }
         break;
-        case 5:
-          if (ren == 0) {
-          } else {
-            if (this.matriz[ren - 1][col] == 2 && this.matriz[ren][col + 1] == 3 && this.matriz[ren - 1][col  + 1] == 2) {
-              coordenadas.push([ren, col]);
-              coordenadas.push([ren -1, col]);
-              coordenadas.push([ren, col + 1]);
-              coordenadas.push([ren - 1, col + 1]);
-              this.modalConstruir(23);
-              this.coordenadasConstruccion = coordenadas;
-            }
+      case 5:
+        if (ren == 0) {
+        } else {
+          if (
+            this.matriz[ren - 1][col] == 2 &&
+            this.matriz[ren][col + 1] == 3 &&
+            this.matriz[ren - 1][col + 1] == 2
+          ) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren - 1, col]);
+            coordenadas.push([ren, col + 1]);
+            coordenadas.push([ren - 1, col + 1]);
+            this.modalConstruir(23);
+            this.coordenadasConstruccion = coordenadas;
           }
-          break;
-          //trigo
-    
+        }
+        break;
+      //trigo
+
       default:
         break;
     }
   }
-  
 
   dibujar() {
     this.A1 = this.matriz[0][0];
