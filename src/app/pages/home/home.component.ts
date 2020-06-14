@@ -371,6 +371,15 @@ export class HomeComponent implements OnInit {
                 this.coordenadasConstruccion = [];
               }
             }
+          }else if(this.matriz[ren - 1][col] == 4){
+              if(this.matriz[ren][col-1]== 1){
+                if(this.matriz[ren-1][col-1]==2){
+                  coordenadas.push([ren, col]);
+                  coordenadas.push([ren - 1, col]);
+                  coordenadas.push([ren, col-1]);
+                  coordenadas.push([ren-1, col- 1]);
+                }
+              }
           }
         }
         break;
