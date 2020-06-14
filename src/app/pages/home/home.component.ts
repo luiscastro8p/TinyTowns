@@ -261,6 +261,8 @@ export class HomeComponent implements OnInit {
         return 'url(../../../assets/img/Edificios/builds/teatro.png)';
       case 34:
         return 'url(../../../assets/img/Edificios/builds/templo.png)';
+      case 24:
+        return 'url(https://image.freepik.com/vector-gratis/casa-dos-pisos_1308-16176.jpg)';
     }
   }
 
@@ -415,7 +417,7 @@ export class HomeComponent implements OnInit {
                 coordenadas.push([ren - 1, col]);
                 coordenadas.push([ren - 1, col + 1]);
                 coordenadas.push([ren, col + 1]);
-                this.modalConstruir(10);
+                this.modalConstruir(24);
                 this.coordenadasConstruccion = coordenadas;
               } else {
                 coordenadas = [];
@@ -435,7 +437,7 @@ export class HomeComponent implements OnInit {
                 [ren + 1, col],
                 [ren + 1, col + 1],
               ];
-              this.modalConstruir(10);
+              this.modalConstruir(24);
               this.coordenadasConstruccion = coordenadas;
             } else {
               coordenadas = [];
