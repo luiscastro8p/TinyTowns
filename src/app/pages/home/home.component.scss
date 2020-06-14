@@ -1,22 +1,3 @@
-:host {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
-  color: #333;
-  box-sizing: border-box;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 8px 0;
-}
-
 p {
   margin: 0;
 }
@@ -309,6 +290,14 @@ svg#clouds {
   align-items: center;
 }
 
+.main-container {
+  background-image: url('src/assets/img/Background.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px;
+}
+
 .pos-contain {
   border: 2px solid cadetblue;
   top: 6%;
@@ -348,6 +337,20 @@ svg#clouds {
   background-position: center;
 }
 
+.letrero {
+  background-image: url(../../../assets/img/letrero.png);
+  background-repeat: no-repeat;
+  background-size: 178px;
+  background-position: center;
+}
+
+.img-material {
+  border-radius: 100%;
+  width: 160px;
+  height: 160px;
+  border: 11px solid #944a0d;
+}
+
 .madera {
   background-image: url('../../../assets/img/Materiales/madera.png');
 }
@@ -356,8 +359,98 @@ svg#clouds {
   max-width: 1406px !important;
 }
 
+.modal-scroll {
+  overflow: scroll;
+  height: 833px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.border-padre {
+  border: 21px solid rgba(222, 177, 156, 0.3);
+  border-radius: 31px;
+  background-color: rgba(500, 500, 500, 0.3)
+}
+
+.info {
+  position: relative;
+  right: 0px;
+  animation: rebota 0.8s alternate infinite ease-out;
+}
+
+.img-material {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  animation: material 0.8s alternate infinite ease-out;
+
+}
+
+.img-material:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+.btn-image {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.btn-image:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+@-webkit-keyframes rebota {
+  0% {
+    top: 130px;
+    height: 50px;
+  }
+
+  100% {
+    top: 80px;
+  }
+}
+
+@-webkit-keyframes material {
+  0% {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+
 @media (min-width: 992px) {
   .modal-lg .modal-xl {
     max-width: 1406px !important;
+  }
+}
+
+@media (max-width: 348px) {
+  .celda {
+    height: 82px;
+  }
+
+  .btn-fondo {
+    background-size: 93px;
+  }
+}
+
+@media (max-width: 789px) {
+  .celda {
+    height: 128px;
+  }
+
+  .btn-fondo {
+    background-size: 166px;
   }
 }
