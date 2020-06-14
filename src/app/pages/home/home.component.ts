@@ -16,6 +16,10 @@ export class HomeComponent implements OnInit {
   contenido = '';
   butons = [];
   material: any;
+  material1: any = '';
+  material2: any = '';
+  material3: any = '';
+
   A1: Number;
   A2: Number;
   A3: Number;
@@ -177,7 +181,7 @@ export class HomeComponent implements OnInit {
       description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
     },
   ];
-  constructor(private modalService: NgbModal) { }
+  constructor(private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.matriz = new Array();
@@ -360,7 +364,29 @@ export class HomeComponent implements OnInit {
     return Math.floor(Math.random() * (max - min)) + min;
   }
   lanzardados() {
-    this.material = this.getRandomMaterial(1, 6);
+    if (this.material1 === '') {
+      this.material1 = this.getRandomMaterial(1, 6);
+    }
+    if (this.material2 === '') {
+      this.material2 = this.getRandomMaterial(1, 6);
+    }
+    if (this.material3 === '') {
+      this.material3 = this.getRandomMaterial(1, 6);
+    }
+  }
+  obtenermaterial(num, value) {
+    switch (num) {
+      case 1:
+        this.material1 = '';
+        break;
+      case 2:
+        this.material2 = '';
+        break;
+      case 3:
+        this.material3 = '';
+        break;
+    }
+    this.material = value;
   }
 
   validaciones(ren, col, material) {
@@ -369,12 +395,11 @@ export class HomeComponent implements OnInit {
     this.validarGranja(ren,col,material);
     this.validarHuerto(ren,col,material);
 
+
     this.limpiarCasillas();
 
     //this.material = 0;
     this.botones('habilitar');
-    
-    
   }
   closemodal() {
     this.material = this.porconstruir;
@@ -398,7 +423,6 @@ export class HomeComponent implements OnInit {
       for (let x = 0; x < 4; x++) {
         if (this.matriz[x][y] == 100) {
           this.matriz[x][y] = 0;
-
         }
       }
     }
@@ -409,11 +433,11 @@ export class HomeComponent implements OnInit {
       size: 'xl',
     });
   }
-  validarInvernadero(ren,col,material){
-    this.validarInvenaderoNormal(ren,col,material);
-    this.validarInvenadero90Der(ren,col,material);
-    this.validarInvenadero180(ren,col,material);
-    this.validarInvenadero90Izq(ren,col,material);
+  validarInvernadero(ren, col, material) {
+    this.validarInvenaderoNormal(ren, col, material);
+    this.validarInvenadero90Der(ren, col, material);
+    this.validarInvenadero180(ren, col, material);
+    this.validarInvenadero90Izq(ren, col, material);
   }
 
   validarInvenaderoNormal(ren, col, material) {
@@ -494,14 +518,18 @@ export class HomeComponent implements OnInit {
       default:
         break;
     }
-}
+  }
   validarInvenadero90Der(ren, col, material) {
     let coordenadas = [];
     switch (material) {
       //madera
       case 1:
-        if(ren>=0 && ren<3){
-          if (this.matriz[ren + 1][col] == 1 && this.matriz[ren][col + 1] == 2 && this.matriz[ren + 1][col + 1] == 4) {
+        if (ren >= 0 && ren < 3) {
+          if (
+            this.matriz[ren + 1][col] == 1 &&
+            this.matriz[ren][col + 1] == 2 &&
+            this.matriz[ren + 1][col + 1] == 4
+          ) {
             coordenadas.push([ren, col]);
             coordenadas.push([ren + 1, col]);
             coordenadas.push([ren, col + 1]);
@@ -509,19 +537,26 @@ export class HomeComponent implements OnInit {
             this.modalConstruir(24);
             this.coordenadasConstruccion = coordenadas;
           }
-        }else 
-         if(this.matriz[ren - 1][col] == 1 && this.matriz[ren - 1][col + 1] == 2 && this.matriz[ren][col + 1] == 4) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren - 1, col]);
-            coordenadas.push([ren - 1, col + 1]);
-            coordenadas.push([ren, col + 1]);
-            this.modalConstruir(24);
-            this.coordenadasConstruccion = coordenadas;
-          } 
+        } else if (
+          this.matriz[ren - 1][col] == 1 &&
+          this.matriz[ren - 1][col + 1] == 2 &&
+          this.matriz[ren][col + 1] == 4
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren - 1, col]);
+          coordenadas.push([ren - 1, col + 1]);
+          coordenadas.push([ren, col + 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
+        }
         break;
       //trigo
       case 2:
-        if (this.matriz[ren][col -1 ] == 1 && this.matriz[ren + 1][col] == 4 && this.matriz[ren + 1][col -1 ] == 1 ) {
+        if (
+          this.matriz[ren][col - 1] == 1 &&
+          this.matriz[ren + 1][col] == 4 &&
+          this.matriz[ren + 1][col - 1] == 1
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           coordenadas.push([ren + 1, col]);
@@ -534,9 +569,13 @@ export class HomeComponent implements OnInit {
       case 4:
         if (ren == 0) {
         } else {
-          if (this.matriz[ren - 1][col] == 2 && this.matriz[ren][col - 1] == 1 && this.matriz[ren - 1][col - 1] == 1) {
+          if (
+            this.matriz[ren - 1][col] == 2 &&
+            this.matriz[ren][col - 1] == 1 &&
+            this.matriz[ren - 1][col - 1] == 1
+          ) {
             coordenadas.push([ren, col]);
-            coordenadas.push([ren -1, col]);
+            coordenadas.push([ren - 1, col]);
             coordenadas.push([ren, col - 1]);
             coordenadas.push([ren - 1, col - 1]);
             this.modalConstruir(24);
@@ -554,27 +593,38 @@ export class HomeComponent implements OnInit {
     switch (material) {
       //madera
       case 1:
-        if(ren==3){
-        }else if (this.matriz[ren + 1][col] == 4 && this.matriz[ren][col + 1] == 1 && this.matriz[ren + 1][col + 1] == 2) {
+        if (ren == 3) {
+        } else if (
+          this.matriz[ren + 1][col] == 4 &&
+          this.matriz[ren][col + 1] == 1 &&
+          this.matriz[ren + 1][col + 1] == 2
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren + 1, col]);
           coordenadas.push([ren, col + 1]);
           coordenadas.push([ren + 1, col + 1]);
           this.modalConstruir(24);
           this.coordenadasConstruccion = coordenadas;
-        }else 
-         if(this.matriz[ren + 1][col] == 2 && this.matriz[ren + 1][col - 1] == 4 && this.matriz[ren][col - 1] == 1) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren + 1, col]);
-            coordenadas.push([ren + 1, col - 1]);
-            coordenadas.push([ren, col - 1]);
-            this.modalConstruir(24);
-            this.coordenadasConstruccion = coordenadas;
-          } 
+        } else if (
+          this.matriz[ren + 1][col] == 2 &&
+          this.matriz[ren + 1][col - 1] == 4 &&
+          this.matriz[ren][col - 1] == 1
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren + 1, col - 1]);
+          coordenadas.push([ren, col - 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
+        }
         break;
       //trigo
       case 2:
-        if (this.matriz[ren][col -1 ] == 4 && this.matriz[ren - 1][col] == 1 && this.matriz[ren - 1][col -1 ] == 1 ) {
+        if (
+          this.matriz[ren][col - 1] == 4 &&
+          this.matriz[ren - 1][col] == 1 &&
+          this.matriz[ren - 1][col - 1] == 1
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           coordenadas.push([ren - 1, col]);
@@ -587,9 +637,13 @@ export class HomeComponent implements OnInit {
       case 4:
         if (ren == 0) {
         } else {
-          if (this.matriz[ren - 1][col] == 1 && this.matriz[ren][col + 1] == 2 && this.matriz[ren - 1][col  + 1] == 1) {
+          if (
+            this.matriz[ren - 1][col] == 1 &&
+            this.matriz[ren][col + 1] == 2 &&
+            this.matriz[ren - 1][col + 1] == 1
+          ) {
             coordenadas.push([ren, col]);
-            coordenadas.push([ren -1, col]);
+            coordenadas.push([ren - 1, col]);
             coordenadas.push([ren, col + 1]);
             coordenadas.push([ren - 1, col + 1]);
             this.modalConstruir(24);
@@ -607,27 +661,39 @@ export class HomeComponent implements OnInit {
     switch (material) {
       //madera
       case 1:
-          if (ren <3 &&this.matriz[ren + 1][col] == 1 && this.matriz[ren][col - 1] == 4 && this.matriz[ren + 1][col -1 ] == 2) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren + 1, col]);
-            coordenadas.push([ren, col - 1]);
-            coordenadas.push([ren + 1, col - 1]);
-            this.modalConstruir(24);
-            this.coordenadasConstruccion = coordenadas;
-          }
-        else 
-         if(ren<0 && this.matriz[ren - 1][col] == 1 && this.matriz[ren - 1][col + 1] == 2 && this.matriz[ren][col + 1] == 4) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren - 1, col]);
-            coordenadas.push([ren - 1, col + 1]);
-            coordenadas.push([ren, col + 1]);
-            this.modalConstruir(24);
-            this.coordenadasConstruccion = coordenadas;
-          } 
+        if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 1 &&
+          this.matriz[ren][col - 1] == 4 &&
+          this.matriz[ren + 1][col - 1] == 2
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren, col - 1]);
+          coordenadas.push([ren + 1, col - 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
+        } else if (
+          ren < 0 &&
+          this.matriz[ren - 1][col] == 1 &&
+          this.matriz[ren - 1][col + 1] == 2 &&
+          this.matriz[ren][col + 1] == 4
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren - 1, col]);
+          coordenadas.push([ren - 1, col + 1]);
+          coordenadas.push([ren, col + 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
+        }
         break;
       //trigo
       case 2:
-        if (this.matriz[ren][col +1 ] == 1 && this.matriz[ren - 1][col] == 4 && this.matriz[ren - 1][col +1 ] == 1 ) {
+        if (
+          this.matriz[ren][col + 1] == 1 &&
+          this.matriz[ren - 1][col] == 4 &&
+          this.matriz[ren - 1][col + 1] == 1
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col + 1]);
           coordenadas.push([ren - 1, col]);
@@ -645,7 +711,7 @@ export class HomeComponent implements OnInit {
             coordenadas.push([ren + 1, col + 1]);
             this.modalConstruir(24);
             this.coordenadasConstruccion = coordenadas;
-          
+
         }
 
         break;
@@ -653,7 +719,7 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
-  
+
   validarGranero(ren, col, material) {
     let coordenadas = [];
     switch (material) {
@@ -849,59 +915,59 @@ export class HomeComponent implements OnInit {
     let b16 = this.matriz[3][3];
 
     if (value === 'habilitar') {
-      if ((b1 > 0 && b1 < 35)) {
+      if (b1 > 0 && b1 < 35) {
         this.btn = true;
-      }else{
+      } else {
         this.btn = false;
       }
       if (b2 > 0 && b2 < 35) {
         this.btn2 = true;
-      }else{
-      this.btn2 = false;
+      } else {
+        this.btn2 = false;
       }
       if (b3 > 0 && b3 < 35) {
         this.btn3 = true;
-      }else{
-      this.btn3 = false;
+      } else {
+        this.btn3 = false;
       }
       if (b4 > 0 && b4 < 35) {
         this.btn4 = true;
-      }else{
+      } else {
         this.btn4 = false;
       }
       if (b5 > 0 && b5 < 35) {
         this.btn5 = true;
-      }else{
+      } else {
         this.btn5 = false;
       }
       if (b6 > 0 && b6 < 35) {
         this.btn6 = true;
-      }else{
+      } else {
         this.btn6 = false;
       }
       if (b7 > 0 && b7 < 35) {
         this.btn7 = true;
-      }else{
+      } else {
         this.btn7 = false;
       }
       if (b8 > 0 && b8 < 35) {
         this.btn8 = true;
-      }else{
+      } else {
         this.btn8 = false;
       }
       if (b9 > 0 && b9 < 35) {
         this.btn9 = true;
-      }else{
+      } else {
         this.btn9 = false;
       }
       if (b10 > 0 && b10 < 35) {
         this.btn10 = true;
-      }else{
+      } else {
         this.btn10 = false;
       }
       if (b11 > 0 && b11 < 35) {
         this.btn11 = true;
-      }else{
+      } else {
         this.btn11 = false;
       }
       if (b12 > 0 && b12 < 35) {
@@ -911,22 +977,22 @@ export class HomeComponent implements OnInit {
       }
       if (b13 > 0 && b13 < 35) {
         this.btn13 = true;
-      }else{
+      } else {
         this.btn13 = false;
       }
       if (b14 > 0 && b14 < 35) {
         this.btn14 = true;
-      }else{
+      } else {
         this.btn14 = false;
       }
       if (b15 > 0 && b15 < 35) {
         this.btn15 = true;
-      }else{
+      } else {
         this.btn15 = false;
       }
       if (b16 > 0 && b16 < 35) {
         this.btn16 = true;
-      }else{
+      } else {
         this.btn16 = false;
       }
     }
@@ -939,42 +1005,42 @@ export class HomeComponent implements OnInit {
       if (b2 == 100) {
         this.btn2 = false;
       } else {
-         this.btn2 = true;
+        this.btn2 = true;
       }
       if (b3 == 100) {
         this.btn3 = false;
       } else {
-         this.btn3 = true;
+        this.btn3 = true;
       }
       if (b4 == 100) {
         this.btn4 = false;
       } else {
-         this.btn4 = true;
+        this.btn4 = true;
       }
       if (b5 == 100) {
         this.btn5 = false;
       } else {
-         this.btn5 = true;
+        this.btn5 = true;
       }
       if (b6 == 100) {
         this.btn6 = false;
       } else {
-         this.btn6 = true;
+        this.btn6 = true;
       }
       if (b7 == 100) {
         this.btn7 = false;
       } else {
-         this.btn7 = true;
+        this.btn7 = true;
       }
       if (b8 == 100) {
         this.btn8 = false;
       } else {
-         this.btn8 = true;
+        this.btn8 = true;
       }
       if (b9 == 100) {
         this.btn9 = false;
       } else {
-         this.btn9 = true;
+        this.btn9 = true;
       }
       if (b10 == 100) {
         this.btn10 = false;
