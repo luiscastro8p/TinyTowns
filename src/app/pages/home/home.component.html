@@ -42,8 +42,8 @@
         <div class="col-8">
             <div class="row mt-5">
                 <div class="col-3 h-col center celda p-1" (click)="onclick(1,material)">
-                    <button [ngStyle]="{'background-image': getImage(A1)}"
-                        class="btn btn-fondo btn-area btn-image"></button>
+                    <button [ngStyle]="{'background-image': getImage(A1)}" class="btn btn-fondo btn-area btn-image"
+                        [disabled]="btn"></button>
                 </div>
                 <div class="col-3 h-col center celda p-1" (click)="onclick(2,material)">
                     <button [ngStyle]="{'background-image': getImage(A2)}" class="btn btn-fondo btn-area btn-image"
