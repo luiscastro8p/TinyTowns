@@ -368,6 +368,7 @@ export class HomeComponent implements OnInit {
                 this.coordenadasConstruccion = coordenadas;
               } else {
                 coordenadas = [];
+                this.coordenadasConstruccion = [];
               }
             }
           }
@@ -378,12 +379,10 @@ export class HomeComponent implements OnInit {
         if (this.matriz[ren][col + 1] == 4) {
           if (this.matriz[ren + 1][col] == 1) {
             if (this.matriz[ren + 1][col + 1] == 1) {
-              coordenadas = [
-                [ren, col],
-                [ren, col + 1],
-                [ren + 1, col],
-                [ren + 1, col + 1],
-              ];
+              coordenadas.push([ren, col]);
+              coordenadas.push([ren, col+1]);
+              coordenadas.push([ren+1, col]);
+              coordenadas.push([ren+1, col+1]);
               this.modalConstruir(24);
               this.coordenadasConstruccion = coordenadas;
             } else {
@@ -400,6 +399,15 @@ export class HomeComponent implements OnInit {
           if (this.matriz[ren + 1][col] == 1) {
             if (this.matriz[ren][col - 1] == 2) {
               if (this.matriz[ren + 1][col - 1] == 1) {
+                coordenadas.push([ren, col]);
+                coordenadas.push([ren+1, col]);
+                coordenadas.push([ren, col+1]);
+                coordenadas.push([ren+1, col-1]);
+                this.modalConstruir(24);
+                this.coordenadasConstruccion = coordenadas;
+              }else{
+                coordenadas = [];
+                this.coordenadasConstruccion = [];
               }
             }
           }
