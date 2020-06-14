@@ -198,3 +198,34 @@
     </div>
 
 </ng-template>
+
+<ng-template #repetidos let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Selecciona un edificio:</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="row "> 
+            <div class="col-12 d-flex justify-content-center align-content-center">
+                 <Button class="btn btn-info" >Pozo</Button>
+            </div>
+            <div class="col-12  d-flex justify-content-center align-content-center">       
+                 <Button class="btn btn-info" >Fuente</Button>
+            </div>
+            <div class="col-12 d-flex justify-content-center align-content-center">        
+                <Button class="btn btn-info" >Molino</Button>
+            </div>
+            <div class="col-12 d-flex justify-content-center align-content-center">        
+                <Button class="btn btn-info text-xl-center" >Cobertizo</Button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');closemodal()">Si</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Save click');">NO</button>
+    </div>
+   
+   
+</ng-template>
