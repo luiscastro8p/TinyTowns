@@ -367,9 +367,11 @@ export class HomeComponent implements OnInit {
     this.validarCasa(ren, col, material);
     this.validarGranero(ren, col, material);
     this.limpiarCasillas();
+   
     this.material = 0;
     this.botones('habilitar');
-
+    
+    
   }
   closemodal() {
     this.material = this.porconstruir;
@@ -544,12 +546,169 @@ export class HomeComponent implements OnInit {
     let b14 = this.matriz[3][1];
     let b15 = this.matriz[3][2];
     let b16 = this.matriz[3][3];
-    
-    if ((b1 > 0 && b1 < 6) || b1 === 100) {       
-      this.btn = true
-    } else {
-      this.btn = false
+    if (value === 'habilitar') {
+      if ((b1 > 0 && b1 < 35)) {
+        this.btn = true;
+      }else{
+        this.btn = false;
+      }
+      if (b2 > 0 && b2 < 35) {
+        this.btn2 = true;
+      }else{
+      this.btn2 = false;
+      }
+      if (b3 > 0 && b3 < 35) {
+        this.btn3 = true;
+      }else{
+      this.btn3 = false;
+      }
+      if (b4 > 0 && b4 < 35) {
+        this.btn4 = true;
+      }else{
+        this.btn4 = false;
+      }
+      if (b5 > 0 && b5 < 35) {
+        this.btn5 = true;
+      }else{
+        this.btn5 = false;
+      }
+      if (b6 > 0 && b6 < 35) {
+        this.btn6 = true;
+      }else{
+        this.btn6 = false;
+      }
+      if (b7 > 0 && b7 < 35) {
+        this.btn7 = true;
+      }else{
+        this.btn7 = false;
+      }
+      if (b8 > 0 && b8 < 35) {
+        this.btn8 = true;
+      }else{
+        this.btn8 = false;
+      }
+      if (b9 > 0 && b9 < 35) {
+        this.btn9 = true;
+      }else{
+        this.btn9 = false;
+      }
+      if (b10 > 0 && b10 < 35) {
+        this.btn10 = true;
+      }else{
+        this.btn10 = false;
+      }
+      if (b11 > 0 && b11 < 35) {
+        this.btn11 = true;
+      }else{
+        this.btn11 = false;
+      }
+      if (b12 > 0 && b12 < 35) {
+        this.btn12 = true;
+      } else {
+        this.btn12 = false;
+      }
+      if (b13 > 0 && b13 < 35) {
+        this.btn13 = true;
+      }else{
+        this.btn13 = false;
+      }
+      if (b14 > 0 && b14 < 35) {
+        this.btn14 = true;
+      }else{
+        this.btn14 = false;
+      }
+      if (b15 > 0 && b15 < 35) {
+        this.btn15 = true;
+      }else{
+        this.btn15 = false;
+      }
+      if (b16 > 0 && b16 < 35) {
+        this.btn16 = true;
+      }else{
+        this.btn16 = false;
+      }
     }
-  } 
+    if (value === 'construccion') {
+      if (b1 == 100) {
+        this.btn = false;
+      } else {
+        this.btn = true;
+      }
+      if (b2 == 100) {
+        this.btn2 = false;
+      } else {
+         this.btn2 = true;
+      }
+      if (b3 == 100) {
+        this.btn3 = false;
+      } else {
+         this.btn3 = true;
+      }
+      if (b4 == 100) {
+        this.btn4 = false;
+      } else {
+         this.btn4 = true;
+      }
+      if (b5 == 100) {
+        this.btn5 = false;
+      } else {
+         this.btn5 = true;
+      }
+      if (b6 == 100) {
+        this.btn6 = false;
+      } else {
+         this.btn6 = true;
+      }
+      if (b7 == 100) {
+        this.btn7 = false;
+      } else {
+         this.btn7 = true;
+      }
+      if (b8 == 100) {
+        this.btn8 = false;
+      } else {
+         this.btn8 = true;
+      }
+      if (b9 == 100) {
+        this.btn9 = false;
+      } else {
+         this.btn9 = true;
+      }
+      if (b10 == 100) {
+        this.btn10 = false;
+      } else {
+        this.btn10 = true;
+      }
+      if (b11 == 100) {
+        this.btn11 = false;
+      } else {
+        this.btn11 = true;
+      }
+      if (b12 == 100) {
+        this.btn12 = false;
+      } else {
+        this.btn12 = true;
+      }
+      if (b13 == 100) {
+        this.btn13 = false;
+      } else {
+        this.btn13 = true;
+      }
+      if (b14 == 100) {
+        this.btn14 = false;
+      } else {
+        this.btn14 = true;
+      }
+      if (b15 == 100) {
+        this.btn15 = false;
+      } else {
+        this.btn15 = true;
+      }
+      if (b16 == 100) {
+        this.btn16 = false;
+      } else {
+        this.btn16 = true;
+      }
+    }
+  }
 }
-
