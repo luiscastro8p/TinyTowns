@@ -177,7 +177,7 @@ export class HomeComponent implements OnInit {
       description: 'textoadasdas dasd asd asdas das d asdas d asd asd asd asd',
     },
   ];
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.matriz = new Array();
@@ -364,10 +364,9 @@ export class HomeComponent implements OnInit {
   }
 
   validaciones(ren, col, material) {
-    this.validarCasa(ren, col, material);
-    this.validarGranero(ren, col, material);
+    this.validarInvernadero(ren, col, material);
+   // this.validarGranero(ren, col, material);
     this.limpiarCasillas();
-    this.material = 0;
     this.botones('habilitar');
 
   }
@@ -393,6 +392,7 @@ export class HomeComponent implements OnInit {
       for (let x = 0; x < 4; x++) {
         if (this.matriz[x][y] == 100) {
           this.matriz[x][y] = 0;
+
         }
       }
     }
@@ -403,7 +403,14 @@ export class HomeComponent implements OnInit {
       size: 'xl',
     });
   }
-  validarCasa(ren, col, material) {
+  validarInvernadero(ren,col,material){
+    this.validarInvenaderoNormal(ren,col,material);
+    this.validarInvenadero90Der(ren,col,material);
+    this.validarInvenadero180(ren,col,material);
+    this.validarInvenadero90Izq(ren,col,material);
+  }
+
+  validarInvenaderoNormal(ren, col, material) {
     let coordenadas = [];
     switch (material) {
       //madera
@@ -424,15 +431,17 @@ export class HomeComponent implements OnInit {
                 this.coordenadasConstruccion = [];
               }
             }
-          }else if(this.matriz[ren - 1][col] == 4){
-              if(this.matriz[ren][col-1]== 1){
-                if(this.matriz[ren-1][col-1]==2){
-                  coordenadas.push([ren, col]);
-                  coordenadas.push([ren - 1, col]);
-                  coordenadas.push([ren, col-1]);
-                  coordenadas.push([ren-1, col- 1]);
-                }
+          } else if (this.matriz[ren - 1][col] == 4) {
+            if (this.matriz[ren][col - 1] == 1) {
+              if (this.matriz[ren - 1][col - 1] == 2) {
+                coordenadas.push([ren, col]);
+                coordenadas.push([ren - 1, col]);
+                coordenadas.push([ren, col - 1]);
+                coordenadas.push([ren - 1, col - 1]);
+                this.modalConstruir(24);
+                this.coordenadasConstruccion = coordenadas;
               }
+            }
           }
         }
         break;
@@ -442,9 +451,9 @@ export class HomeComponent implements OnInit {
           if (this.matriz[ren + 1][col] == 1) {
             if (this.matriz[ren + 1][col + 1] == 1) {
               coordenadas.push([ren, col]);
-              coordenadas.push([ren, col+1]);
-              coordenadas.push([ren+1, col]);
-              coordenadas.push([ren+1, col+1]);
+              coordenadas.push([ren, col + 1]);
+              coordenadas.push([ren + 1, col]);
+              coordenadas.push([ren + 1, col + 1]);
               this.modalConstruir(24);
               this.coordenadasConstruccion = coordenadas;
             } else {
@@ -462,12 +471,12 @@ export class HomeComponent implements OnInit {
             if (this.matriz[ren][col - 1] == 2) {
               if (this.matriz[ren + 1][col - 1] == 1) {
                 coordenadas.push([ren, col]);
-                coordenadas.push([ren+1, col]);
-                coordenadas.push([ren, col+1]);
-                coordenadas.push([ren+1, col-1]);
+                coordenadas.push([ren + 1, col]);
+                coordenadas.push([ren, col + 1]);
+                coordenadas.push([ren + 1, col - 1]);
                 this.modalConstruir(24);
                 this.coordenadasConstruccion = coordenadas;
-              }else{
+              } else {
                 coordenadas = [];
                 this.coordenadasConstruccion = [];
               }
@@ -479,8 +488,166 @@ export class HomeComponent implements OnInit {
       default:
         break;
     }
-  }
+}
+  validarInvenadero90Der(ren, col, material) {
+    let coordenadas = [];
+    switch (material) {
+      //madera
+      case 1:
+        if(ren>=0 && ren<3){
+          if (this.matriz[ren + 1][col] == 1 && this.matriz[ren][col + 1] == 2 && this.matriz[ren + 1][col + 1] == 4) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren + 1, col]);
+            coordenadas.push([ren, col + 1]);
+            coordenadas.push([ren + 1, col + 1]);
+            this.modalConstruir(24);
+            this.coordenadasConstruccion = coordenadas;
+          }
+        }else 
+         if(this.matriz[ren - 1][col] == 1 && this.matriz[ren - 1][col + 1] == 2 && this.matriz[ren][col + 1] == 4) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren - 1, col]);
+            coordenadas.push([ren - 1, col + 1]);
+            coordenadas.push([ren, col + 1]);
+            this.modalConstruir(24);
+            this.coordenadasConstruccion = coordenadas;
+          } 
+        break;
+      //trigo
+      case 2:
+        if (this.matriz[ren][col -1 ] == 1 && this.matriz[ren + 1][col] == 4 && this.matriz[ren + 1][col -1 ] == 1 ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren, col - 1]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren + 1, col - 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
+        }
+        break;
+      //vidrio,
+      case 4:
+        if (ren == 0) {
+        } else {
+          if (this.matriz[ren - 1][col] == 2 && this.matriz[ren][col - 1] == 1 && this.matriz[ren - 1][col - 1] == 1) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren -1, col]);
+            coordenadas.push([ren, col - 1]);
+            coordenadas.push([ren - 1, col - 1]);
+            this.modalConstruir(24);
+            this.coordenadasConstruccion = coordenadas;
+          }
+        }
 
+        break;
+      default:
+        break;
+    }
+  }
+  validarInvenadero180(ren, col, material) {
+    let coordenadas = [];
+    switch (material) {
+      //madera
+      case 1:
+        if(ren==3){
+        }else if (this.matriz[ren + 1][col] == 4 && this.matriz[ren][col + 1] == 1 && this.matriz[ren + 1][col + 1] == 2) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren, col + 1]);
+          coordenadas.push([ren + 1, col + 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
+        }else 
+         if(this.matriz[ren + 1][col] == 2 && this.matriz[ren + 1][col - 1] == 4 && this.matriz[ren][col - 1] == 1) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren + 1, col]);
+            coordenadas.push([ren + 1, col - 1]);
+            coordenadas.push([ren, col - 1]);
+            this.modalConstruir(24);
+            this.coordenadasConstruccion = coordenadas;
+          } 
+        break;
+      //trigo
+      case 2:
+        if (this.matriz[ren][col -1 ] == 4 && this.matriz[ren - 1][col] == 1 && this.matriz[ren - 1][col -1 ] == 1 ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren, col - 1]);
+          coordenadas.push([ren - 1, col]);
+          coordenadas.push([ren - 1, col - 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
+        }
+        break;
+      //vidrio,
+      case 4:
+        if (ren == 0) {
+        } else {
+          if (this.matriz[ren - 1][col] == 1 && this.matriz[ren][col + 1] == 2 && this.matriz[ren - 1][col  + 1] == 1) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren -1, col]);
+            coordenadas.push([ren, col + 1]);
+            coordenadas.push([ren - 1, col + 1]);
+            this.modalConstruir(24);
+            this.coordenadasConstruccion = coordenadas;
+          }
+        }
+
+        break;
+      default:
+        break;
+    }
+  }
+  validarInvenadero90Izq(ren, col, material) {
+    let coordenadas = [];
+    switch (material) {
+      //madera
+      case 1:
+          if (ren <3 &&this.matriz[ren + 1][col] == 1 && this.matriz[ren][col - 1] == 4 && this.matriz[ren + 1][col -1 ] == 2) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren + 1, col]);
+            coordenadas.push([ren, col - 1]);
+            coordenadas.push([ren + 1, col - 1]);
+            this.modalConstruir(24);
+            this.coordenadasConstruccion = coordenadas;
+          }
+        else 
+         if(ren<0 && this.matriz[ren - 1][col] == 1 && this.matriz[ren - 1][col + 1] == 2 && this.matriz[ren][col + 1] == 4) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren - 1, col]);
+            coordenadas.push([ren - 1, col + 1]);
+            coordenadas.push([ren, col + 1]);
+            this.modalConstruir(24);
+            this.coordenadasConstruccion = coordenadas;
+          } 
+        break;
+      //trigo
+      case 2:
+        if (this.matriz[ren][col +1 ] == 1 && this.matriz[ren - 1][col] == 4 && this.matriz[ren - 1][col +1 ] == 1 ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren, col + 1]);
+          coordenadas.push([ren - 1, col]);
+          coordenadas.push([ren - 1, col + 1]);
+          this.modalConstruir(24);
+          this.coordenadasConstruccion = coordenadas;
+        }
+        break;
+      //vidrio,
+      case 4:
+          if (this.matriz[ren + 1][col] == 2 && this.matriz[ren][col + 1] == 1 && this.matriz[ren + 1][col + 1] == 1) {
+            coordenadas.push([ren, col]);
+            coordenadas.push([ren + 1, col]);
+            coordenadas.push([ren, col + 1]);
+            coordenadas.push([ren + 1, col + 1]);
+            this.modalConstruir(24);
+            this.coordenadasConstruccion = coordenadas;
+          
+        }
+
+        break;
+      default:
+        break;
+    }
+  }
+  
   validarGranero(ren, col, material) {
     switch (material) {
       //madera
@@ -544,6 +711,7 @@ export class HomeComponent implements OnInit {
     this.D3 = this.matriz[3][2];
     this.D4 = this.matriz[3][3];
   }
+
   botones(value) {
     let b1 = this.matriz[0][0];
     let b2 = this.matriz[0][1];
@@ -561,12 +729,12 @@ export class HomeComponent implements OnInit {
     let b14 = this.matriz[3][1];
     let b15 = this.matriz[3][2];
     let b16 = this.matriz[3][3];
-    
-    if ((b1 > 0 && b1 < 6) || b1 === 100) {       
+
+    if ((b1 > 0 && b1 < 6) || b1 === 100) {
       this.btn = true
     } else {
       this.btn = false
     }
-  } 
+  }
 }
 
