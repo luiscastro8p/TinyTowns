@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
   D2: Number;
   D3: Number;
   D4: Number;
-  //btn1 = false;
+  btn = false;
   btn2 = false;
   btn3 = false;
   btn4 = false;
@@ -211,6 +211,56 @@ export class HomeComponent implements OnInit {
         return 'url(../../../assets/img/Materiales/Vidrio.png)';
       case 5:
         return 'url(../../../assets/img/Materiales/Piedra.png)';
+      case 10:
+        return 'url(../../../assets/img/Edificios/builds/abadia.png)';
+      case 11:
+        return 'url(../../../assets/img/Edificios/builds/almacen.png)';
+      case 12:
+        return 'url(../../../assets/img/Edificios/builds/asilo.png)';
+      case 13:
+        return 'url(../../../assets/img/Edificios/builds/banco.png)';
+      case 14:
+        return 'url(../../../assets/img/Edificios/builds/cabana.png)';
+      case 15:
+        return 'url(../../../assets/img/Edificios/builds/capilla.png)';
+      case 16:
+        return 'url(../../../assets/img/Edificios/builds/centroComercial.png)';
+      case 17:
+        return 'url(../../../assets/img/Edificios/builds/claustro.png)';
+      case 18:
+        return 'url(../../../assets/img/Edificios/builds/cobertizo.png)';
+      case 19:
+        return 'url(../../../assets/img/Edificios/builds/fabrica.png)';
+      case 20:
+        return 'url(../../../assets/img/Edificios/builds/fuente.png)';
+      case 21:
+        return 'url(../../../assets/img/Edificios/builds/granero.png)';
+      case 22:
+        return 'url(../../../assets/img/Edificios/builds/granja.png)';
+      case 23:
+        return 'url(../../../assets/img/Edificios/builds/huerto.png)';
+      case 24:
+        return 'url(../../../assets/img/Edificios/builds/invernadero.png)';
+      case 25:
+        return 'url(../../../assets/img/Edificios/builds/mercado.png)';
+      case 26:
+        return 'url(../../../assets/img/Edificios/builds/molinoPiedra.png)';
+      case 27:
+        return 'url(../../../assets/img/Edificios/builds/pasteleria.png)';
+      case 28:
+        return 'url(../../../assets/img/Edificios/builds/posada.png)';
+      case 29:
+        return 'url(../../../assets/img/Edificios/builds/pozo.png)';
+      case 30:
+        return 'url(../../../assets/img/Edificios/builds/saladefiestas.png)';
+      case 31:
+        return 'url(../../../assets/img/Edificios/builds/sastre.png)';
+      case 32:
+        return 'url(../../../assets/img/Edificios/builds/taverna.png)';
+      case 33:
+        return 'url(../../../assets/img/Edificios/builds/teatro.png)';
+      case 34:
+        return 'url(../../../assets/img/Edificios/builds/templo.png)';
       case 24:
         return 'url(https://image.freepik.com/vector-gratis/casa-dos-pisos_1308-16176.jpg)';
     }
@@ -318,6 +368,8 @@ export class HomeComponent implements OnInit {
     this.validarGranero(ren, col, material);
     this.limpiarCasillas();
     this.material = 0;
+    this.botones('habilitar');
+
   }
   closemodal() {
     this.material = this.porconstruir;
@@ -326,6 +378,7 @@ export class HomeComponent implements OnInit {
       let posicion = this.coordenadasConstruccion[i];
       this.matriz[posicion[0]][posicion[1]] = 100;
     }
+    this.botones('construccion');
     console.log(this.matriz);
   }
   modalConstruir(valor) {
@@ -474,7 +527,29 @@ export class HomeComponent implements OnInit {
     this.D3 = this.matriz[3][2];
     this.D4 = this.matriz[3][3];
   }
+  botones(value) {
+    let b1 = this.matriz[0][0];
+    let b2 = this.matriz[0][1];
+    let b3 = this.matriz[0][2];
+    let b4 = this.matriz[0][3];
+    let b5 = this.matriz[1][0];
+    let b6 = this.matriz[1][1];
+    let b7 = this.matriz[1][2];
+    let b8 = this.matriz[1][3];
+    let b9 = this.matriz[2][0];
+    let b10 = this.matriz[2][1];
+    let b11 = this.matriz[2][2];
+    let b12 = this.matriz[2][3];
+    let b13 = this.matriz[3][0];
+    let b14 = this.matriz[3][1];
+    let b15 = this.matriz[3][2];
+    let b16 = this.matriz[3][3];
+    
+    if ((b1 > 0 && b1 < 6) || b1 === 100) {       
+      this.btn = true
+    } else {
+      this.btn = false
+    }
+  } 
 }
-
-
 
