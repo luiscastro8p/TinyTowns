@@ -2100,6 +2100,7 @@ export class HomeComponent implements OnInit {
         this.btn16 = true;
       }
     }
-
+    
+     
   }
 }

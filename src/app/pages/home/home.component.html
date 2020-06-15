@@ -24,6 +24,10 @@
                     <p class="text-white font-weight-bold"> Arma tu baraja</p>
                 </Button>
             </div>
+            <div *ngIf="seleccionadas.length > 1">
+                <a class='btn btn-outline-info text-white ' target="_blank" href="../../../assets/Tiny_Towns.pdf">
+                    manual</a>
+            </div>
         </div>
     </div>
 </div>
@@ -180,9 +184,11 @@
                 </div>
             </div>
         </div>
-        <div *ngIf="seleccionadas.length == 7" class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 info h-100 mt-5"
-            (click)="modalEdificios(edificios)" style="cursor: pointer;">
-            <img alt='info' src="../../../assets/info.gif" width="132px" />
+        <div *ngIf="seleccionadas.length == 7" class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2  h-100 mt-5"
+            style="cursor: pointer;">
+            <div class="col-12 info" (click)="modalEdificios(edificios)">
+                <img alt='info' src="../../../assets/info.gif" width="132px" />
+            </div>
         </div>
     </div>
 </div>
@@ -261,29 +267,9 @@
     </div>
     <div class="modal-body">
         <div class="row ">
-            <div class="col p-2 d-flex justify-content-center align-content-center">
-                <Button class="btn" (click)="seleccionarConstruccion(29)">
-                    <p class="txt-repetidos">Pozo</p>
-                    <img alt='pozo' src="../../../assets/img/Edificios/pozo.png" width="150" />
-                </Button>
-            </div>
-            <div class="col p-2  d-flex justify-content-center align-content-center">
-                <Button class="btn" (click)="seleccionarConstruccion(20)">
-                    <p class="txt-repetidos">Fuente</p>
-                    <img alt='fuente' src="../../../assets/img/Edificios/fuente.png" width="150" />
-                </Button>
-            </div>
-            <div class="col p-2 d-flex justify-content-center align-content-center">
-                <Button class="btn" (click)="seleccionarConstruccion(26)">
-                    <p class="txt-repetidos">Molino</p>
-                    <img alt='Molino' src="../../../assets/img/Edificios/molinoPiedra.png" width="150" />
-                </Button>
-            </div>
-            <div class="col p-2 d-flex justify-content-center align-content-center">
-                <Button class="btn text-xl-center" (click)="seleccionarConstruccion(18)">
-                    <p class="txt-repetidos">Cobertizo</p>
-                    <img alt='cobertizo' src="../../../assets/img/Edificios/cobertizo.png" width="150" />
-                </Button>
+            <div class="col">
+                Si terminaste el juego checa la puntuacion en base a este Manual
+
             </div>
         </div>
     </div>
