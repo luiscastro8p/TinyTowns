@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -22,7 +21,16 @@ export class HomeComponent implements OnInit {
   material1: any = '';
   material2: any = '';
   material3: any = '';
-
+  seleccionadas = [
+    {
+      img: '../../../assets/img/Edificios/cabana.png',
+      text: 'Cabaña',
+      description:
+        'Las Cabañas no alimentadas se dejan en el tablero pero no puntúan por sí mismos. Otros edificios como los Pozos, tratan a las Cabañas, tanto alimentados como no, del mismo modo.Los puedes construir aunque no tengas una ',
+      id: 14,
+      type: 'azul',
+    },
+  ];
   A1: Number;
   A2: Number;
   A3: Number;
@@ -57,11 +65,19 @@ export class HomeComponent implements OnInit {
   btn16 = false;
   porconstruir;
   matriz: any[3][3];
-
+  btnreset = true;
   imagenes = require('../../../assets/imagenes.json');
+
   constructor(private modalService: NgbModal) { }
 
-  ngOnInit(): void {
+
+
+  ngAfterContentInit() {
+    if (this.imagenes) {
+      // this.modalEdificios(this.Edificios);
+    }
+  }
+  ngOnInit() { 
     this.matriz = new Array();
     for (let y = 0; y < 4; y++) {
       let row: any[] = new Array<any>();
@@ -77,8 +93,9 @@ export class HomeComponent implements OnInit {
       }
     }
     this.A1 = this.matriz[0][0];
+    this.validarseleccionadas();
   }
-
+  validarseleccionadas() {}
   getImage(btn) {
     switch (btn) {
       case -1:
@@ -237,9 +254,74 @@ export class HomeComponent implements OnInit {
         break;
     }
   }
+  ingresarSeleccion(value) {
+    let imagenes = this.imagenes;
+    if (this.seleccionadas.length ==6) {
+      this.btnreset = false;
+    }
+    if (this.seleccionadas.length <= 7) {
+      this.seleccionadas.push(value);
+      switch (value.type) {
+        case 'rojo':
+          for (let item of imagenes) {
+            if (item.type === 'rojo') {
+              console.log('entro');
+              let i = imagenes.indexOf(item);
+              imagenes.splice(i, 4);
+              this.imagenes = imagenes;
+            }
+          }
+          break;
+        case 'naranja':
+          for (let item of imagenes) {
+            if (item.type === 'naranja') {
+              let i = imagenes.indexOf(item);
+              imagenes.splice(i, 4);
+              this.imagenes = imagenes;
+            }
+          }
+          break;
+        case 'oscuro':
+          for (let item of imagenes) {
+            if (item.type === 'oscuro') {
+              let i = imagenes.indexOf(item);
+              imagenes.splice(i, 4);
+              this.imagenes = imagenes;
+            }
+          }
+          break;
+        case 'gris':
+          for (let item of imagenes) {
+            if (item.type === 'gris') {
+              let i = imagenes.indexOf(item);
+              imagenes.splice(i, 4);
+              this.imagenes = imagenes;
+            }
+          }
+          break;
+        case 'verde':
+          for (let item of imagenes) {
+            if (item.type === 'verde') {
+              let i = imagenes.indexOf(item);
+              imagenes.splice(i, 4);
+              this.imagenes = imagenes;
+            }
+          }
+          break;
+        case 'amarillo':
+          for (let item of imagenes) {
+            if (item.type === 'amarillo') {
+              let i = imagenes.indexOf(item);
+              imagenes.splice(i, 4);
+              this.imagenes = imagenes;
+            }
+          }
+          break;
+      }
+    }
+  }
   seleccionarConstruccion(value) {
     this.porconstruir = value;
-
   }
   closemodalConstruirIguales(value) {
     this.material = value;
@@ -270,7 +352,6 @@ export class HomeComponent implements OnInit {
       switch (num) {
         case 1:
           this.material1 = '';
-
           break;
         case 2:
           this.material2 = '';
@@ -284,6 +365,7 @@ export class HomeComponent implements OnInit {
       this.material = value;
     }
   }
+
 
   validaciones(ren, col, material) {
     this.validarInvernadero();
@@ -309,6 +391,7 @@ export class HomeComponent implements OnInit {
     this.validarPasteleria();
     this.validarSastre();
     this.validarTeatro();
+
     this.limpiarCasillas();
     //this.material = 0;
     this.botones('habilitar');
@@ -327,6 +410,7 @@ export class HomeComponent implements OnInit {
     this.contenido = '¿Deseas construir una casa?';
     this.modalService.open(this.casa, {
       backdropClass: 'light-blue-backdrop',
+      keyboard: false,
     });
   }
 
@@ -334,6 +418,8 @@ export class HomeComponent implements OnInit {
     this.modalService.open(this.repetidos, {
       backdropClass: 'light-blue-backdrop',
       backdrop: 'static',
+      size: 'lg',
+      keyboard: false,
     });
   }
   limpiarCasillas() {
@@ -349,6 +435,8 @@ export class HomeComponent implements OnInit {
     this.modalService.open(value, {
       backdropClass: 'light-blue-backdrop',
       size: 'xl',
+      backdrop: 'static',
+      keyboard: false,
     });
   }
 
@@ -796,6 +884,7 @@ export class HomeComponent implements OnInit {
         else if (ren < 3 && this.matriz[ren][col] == 5 && this.matriz[ren + 1][col] == 1) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren + 1, col]);
+
           this.modalConstruir(26);
           this.coordenadasConstruccion = coordenadas;
           return;
@@ -1360,11 +1449,11 @@ validarHuerto(){
       case 1:
         if (
           ren < 3 &&
+
           this.matriz[ren][col - 1] == 2 &&
           this.matriz[ren][col + 1] == 2 &&
           this.matriz[ren + 1][col + 1] == 3 &&
-          this.matriz[ren + 1][col - 1] == 3
-        ) {
+          this.matriz[ren + 1][col - 1] == 3) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           coordenadas.push([ren, col + 1]);
@@ -1373,7 +1462,6 @@ validarHuerto(){
           this.modalConstruir(11);
           this.coordenadasConstruccion = coordenadas;
         }
-
         break;
       //trigo
       case 2:
@@ -1425,6 +1513,7 @@ validarHuerto(){
           this.modalConstruir(10);
           this.coordenadasConstruccion = coordenadas;
         } else if (ren > 0 &&
+
           this.matriz[ren - 1][col] == 2 &&
           this.matriz[ren - 1][col - 1] == 1 &&
           this.matriz[ren - 1][col - 2] == 2 &&
@@ -1448,6 +1537,7 @@ validarHuerto(){
   validarBanco(ren, col, material) {
     let coordenadas = [];
     switch (material) {
+
       //madera
       case 1:
         if (ren > 0 &&
@@ -1516,7 +1606,6 @@ validarHuerto(){
         break;
       //vidrio 
       case 4:
-
         if (ren > 0 &&
           this.matriz[ren - 1][col] == 2 &&
           this.matriz[ren - 1][col - 1] == 2 &&
@@ -1592,6 +1681,7 @@ validarHuerto(){
       }
     }
   }
+
 
   dibujar() {
     this.A1 = this.matriz[0][0];
@@ -1794,5 +1884,6 @@ validarHuerto(){
         this.btn16 = true;
       }
     }
+   
   }
 }
