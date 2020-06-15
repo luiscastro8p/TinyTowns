@@ -1,126 +1,170 @@
 [{
     "img": "../../../assets/img/Edificios/invernadero.png",
     "text": "invernadero",
-    "description": "Alimenta 1 grupo contiguo de edificios en cualquier lugar de tu ciudad "
-  },
-  {
-    "img": "../../../assets/img/Edificios/abadia.png",
-    "text": "Abadia",
-    "description": "Abadia les gusta estar aisladas. Si una Abbey está adyacente(arriba, abajo, izquierda y derecha) a uno de (posada, panaderia y banvo), vale 0 puntos."
-  },
-  {
-    "img": "../../../assets/img/Edificios/almacen.png",
-    "text": "Almacen",
-    "description": "Puedes almacenar hasta 3 recursos poniendo los cubos en el edificio. Cuando otro jugador nombre un recurso que no quieras, coloca el recurso en tu Warehouse.Cuando hagas esto, puedes quitar un recurso de tu Warehouse y colocarlo en un recuadro vacío de tu tablero.Nunca se puede quitar un recurso en el Warehouse sin poner un nuevo recurso. Como resultado, el número de recursos en un Warehouse nunca decrecerá."
-  },
-  {
-    "img": "../../../assets/img/Edificios/asilo.png",
-    "text": "Asilo",
-    "description": "La puntuación máxima de Asilo es 26. Si construyes más de 6 Asilo, la puntuación total de Asilo sigue siendo 26."
-  },
-  {
-    "img": " ../../../assets/img/Edificios/banco.png",
-    "text": "Banco",
-    "description": "No puedes construir más de 5 Bancos, ya que sólo hay 5 tipos de recursos y por tanto, no quedarían recursos para guardar."
-  },
-  {
-    "img": "../../../assets/img/Edificios/cabana.png",
-    "text": "Cabaña",
-    "description": "Las Cabañas no alimentadas se dejan en el tablero pero no puntúan por sí mismos. Otros edificios como los Pozos, tratan a las Cabañas, tanto alimentados como no, del mismo modo.Los puedes construir aunque no tengas una "
-  },
-  {
-    "img": "../../../assets/img/Edificios/capilla.png",
-    "text": "Capilla",
-    "description": "Puntúa Capilla individualmente. Una ciudad con 3 cabañas alimentadas y 1 cabaña sin alimentar hará que cada Capilla valga 3 (las capillas no dan puntos por cada cabaña sin alimentar)"
-  },
-  {
-    "img": "../../../assets/img/Edificios/centroComercial.png",
-    "text": "Centro Comercial",
-    "description": "Los centros comerciales pueden usarse en el patrón de un edificio futuro.Cuando construyes un edificio que usó una Centro comercial como recurso, no quitas el centro comercial de ese recuadro. Puedes usar varios centros para construir un edificio, pero debe utilizarse al menos 1 recurso que no sea centro comercial"
-  },
-  {
-    "img": "../../../assets/img/Edificios/claustro.png",
-    "text": "Claustro",
-    "description": "Claustro no colocados en una esquina seguirán puntuando 1 por cada Claustro situado en esquina. El máximo que un Claustro puede puntuar es 4."
-  },
-  {
-    "img": "../../../assets/img/Edificios/cobertizo.png",
-    "text": "Cobertizo",
-    "description": "Cobertizos no están restringidos a ser colocados en los 2 recuadros en los que están sus recursos cuando se construyen, pueden colocarse en cualquier espacio vacío del tablero."
-  },
-  {
-    "img": "../../../assets/img/Edificios/fabrica.png",
-    "text": "Fabrica",
-    "description": "Puedes elegir que varias Factories guarden el mismo recurso, pero no te proporciona ninguan ventaja"
-  },
-  {
-    "img": "../../../assets/img/Edificios/fuente.png",
-    "text": "Fuente",
-    "description": "Fuente no pueden puntuar más de 2.Adyacente se refiere a arriba, abajo, izquierda y derecha, no diagonal"
+    "description": "Alimenta 1 grupo contiguo de edificios en cualquier lugar de tu ciudad ",
+    "id": 24,
+    "type": "rojo"
   },
   {
     "img": "../../../assets/img/Edificios/granero.png",
     "text": "Granero",
-    "description": "Granero solo alimentan en los 8 huecos que rodean al recuadro (arriba, abajo, izquierda, derecha y diagonal) a un máximo de 8."
-  },
-  {
+    "description": "Granero solo alimentan en los 8 huecos que rodean al recuadro (arriba, abajo, izquierda, derecha y diagonal) a un máximo de 8.",
+    "id": 21,
+    "type": "rojo"
+  }, {
     "img": "../../../assets/img/Edificios/granja.png",
     "text": "Granja",
-    "description": "Granja alimentan a 4 en cualquier lugar del tablero."
-  },
-  {
+    "description": "Granja alimentan a 4 en cualquier lugar del tablero.",
+    "id": 22,
+    "type": "rojo"
+  }, {
     "img": "../../../assets/img/Edificios/huerto.png",
     "text": "Huerto",
-    "description": "Huertos siempre alimentarán a un máximo de 6, no importa dónde estén colocados."
+    "description": "Huertos siempre alimentarán a un máximo de 6, no importa dónde estén colocados.",
+    "id": 23,
+    "type": "rojo"
+  },
+
+  {
+    "img": "../../../assets/img/Edificios/abadia.png",
+    "text": "Abadia",
+    "description": "Abadia les gusta estar aisladas. Si una Abbey está adyacente(arriba, abajo, izquierda y derecha) a uno de (posada, panaderia y banvo), vale 0 puntos.",
+    "id": 10,
+    "type": "naranja"
   },
   {
-    "img": "../../../assets/img/Edificios/mercado.png",
-    "text": "Mercado",
-    "description": "Mercado puntúan por fila o por columna, pero no ambas.Los Markets siempre puntúan 1 por sí mismos además de por otros Markets en la misma fila o columna, hasta un máximo de 4 "
+    "img": "../../../assets/img/Edificios/capilla.png",
+    "text": "Capilla",
+    "description": "Puntúa Capilla individualmente. Una ciudad con 3 cabañas alimentadas y 1 cabaña sin alimentar hará que cada Capilla valga 3 (las capillas no dan puntos por cada cabaña sin alimentar)",
+    "id": 15,
+    "type": "naranja"
   },
   {
-    "img": "../../../assets/img/Edificios/molinoPiedra.png",
-    "text": "Molino de piedra",
-    "description": "Molino de piedra no pueden puntuar más de 2 puntos, incluso si están adyacentes a múltiples(Farm, Granary, Greenhouse, Orchard) or. (Theater)"
-  },
-  {
-    "img": "../../../assets/img/Edificios/pasteleria.png",
-    "text": "Pasteleria",
-    "description": "Adyacente se refiere a arriba, abajo, izquierda y derecha, no diagonal."
-  },
-  {
-    "img": "../../../assets/img/Edificios/posada.png",
-    "text": "Posada",
-    "description": "Posada que estén en la misma fila o columna valen 0 puntos."
-  },
-  {
-    "img": "../../../assets/img/Edificios/pozo.png",
-    "text": "Pozo",
-    "description": "Adyacente se refiere a arriba, abajo, puntúan 1 izquierda y derecha, no diagonal.Las cabañas alimentadas y sin alimentar puntuan 1 "
-  },
-  {
-    "img": "../../../assets/img/Edificios/sala de fiestas.png",
-    "text": "Sala de fiestas",
-    "description": "Si empatas con el jugador que está a tu derecha, tus salas de fiesta sólo valen 2 puntos."
-  },
-  {
-    "img": "../../../assets/img/Edificios/sastre.png",
-    "text": "Sastre",
-    "description": "Sastre que no se hayan construído en los 4 recuadros centrales siguen valiendo 1 mas 1 por cada Sastre en los 4 recuadros centrales. Lo máximo que un Sastre puede puede puntuar en total son 5."
-  },
-  {
-    "img": "../../../assets/img/Edificios/taverna.png",
-    "text": "Taverna",
-    "description": "Taverna puntúan como grupo. Por ejemplo, 4 Taverns valen 14 puntos en total(pueden estar en cualquier sitio del tablero).A partir de la 5 Taverna construida, la puntuación de Taverna no se incrementa."
-  },
-  {
-    "img": "../../../assets/img/Edificios/teatro.png",
-    "text": "Teatro",
-    "description": "La puntuación de un Teatro es el número total de tipos de edificio únicos además del Teatro que comparten fila o Columna con ese Teatro, por un máximo de 6 puntos. Si hay edificios del mismo tipo en la misma fila y columna del Teatro, ese tipo de edificio sólo cuenta una vez para la puntuación del Theater.El monumento cuenta como un tipo de edificio único(a menos que sea Barrett Castle, que cuenta como 2)."
+    "img": "../../../assets/img/Edificios/claustro.png",
+    "text": "Claustro",
+    "description": "Claustro no colocados en una esquina seguirán puntuando 1 por cada Claustro situado en esquina. El máximo que un Claustro puede puntuar es 4.",
+    "id": 17,
+    "type": "naranja"
   },
   {
     "img": "../../../assets/img/Edificios/templo.png",
     "text": "Templo",
-    "description": "Templo valen 0 si no están adyacentes a al menos 2 cabañas."
+    "description": "Templo valen 0 si no están adyacentes a al menos 2 cabañas.",
+    "id": 34,
+    "type": "naranja"
+  },
+  {
+    "img": "../../../assets/img/Edificios/almacen.png",
+    "text": "Almacen",
+    "description": "Puedes almacenar hasta 3 recursos poniendo los cubos en el edificio. Cuando otro jugador nombre un recurso que no quieras, coloca el recurso en tu Warehouse.Cuando hagas esto, puedes quitar un recurso de tu Warehouse y colocarlo en un recuadro vacío de tu tablero.Nunca se puede quitar un recurso en el Warehouse sin poner un nuevo recurso. Como resultado, el número de recursos en un Warehouse nunca decrecerá.",
+    "id": 11,
+    "type": "oscuro"
+  },
+  {
+    "img": " ../../../assets/img/Edificios/banco.png",
+    "text": "Banco",
+    "description": "No puedes construir más de 5 Bancos, ya que sólo hay 5 tipos de recursos y por tanto, no quedarían recursos para guardar.",
+    "id": 13,
+    "type": "oscuro"
+  },
+
+  {
+    "img": "../../../assets/img/Edificios/centroComercial.png",
+    "text": "Centro Comercial",
+    "description": "Los centros comerciales pueden usarse en el patrón de un edificio futuro.Cuando construyes un edificio que usó una Centro comercial como recurso, no quitas el centro comercial de ese recuadro. Puedes usar varios centros para construir un edificio, pero debe utilizarse al menos 1 recurso que no sea centro comercial",
+    "id": 16,
+    "type": "oscuro"
+  },
+  {
+    "img": "../../../assets/img/Edificios/fabrica.png",
+    "text": "Fabrica",
+    "description": "Puedes elegir que varias Factories guarden el mismo recurso, pero no te proporciona ninguan ventaja",
+    "id": 19,
+    "type": "oscuro"
+  },
+  {
+    "img": "../../../assets/img/Edificios/molinoPiedra.png",
+    "text": "Molino de piedra",
+    "description": "Molino de piedra no pueden puntuar más de 2 puntos, incluso si están adyacentes a múltiples(Farm, Granary, Greenhouse, Orchard) or. (Theater)",
+    "id": 26,
+    "type": "gris"
+  },
+  {
+    "img": "../../../assets/img/Edificios/cobertizo.png",
+    "text": "Cobertizo",
+    "description": "Cobertizos no están restringidos a ser colocados en los 2 recuadros en los que están sus recursos cuando se construyen, pueden colocarse en cualquier espacio vacío del tablero.",
+    "id": 18,
+    "type": "gris"
+  },
+
+  {
+    "img": "../../../assets/img/Edificios/fuente.png",
+    "text": "Fuente",
+    "description": "Fuente no pueden puntuar más de 2.Adyacente se refiere a arriba, abajo, izquierda y derecha, no diagonal",
+    "id": 20,
+    "type": "gris"
+  },
+  {
+    "img": "../../../assets/img/Edificios/pozo.png",
+    "text": "Pozo",
+    "description": "Adyacente se refiere a arriba, abajo, puntúan 1 izquierda y derecha, no diagonal.Las cabañas alimentadas y sin alimentar puntuan 1 ",
+    "id": 29,
+    "type": "gris"
+  },
+  {
+    "img": "../../../assets/img/Edificios/taverna.png",
+    "text": "Taverna",
+    "description": "Taverna puntúan como grupo. Por ejemplo, 4 Taverns valen 14 puntos en total(pueden estar en cualquier sitio del tablero).A partir de la 5 Taverna construida, la puntuación de Taverna no se incrementa.",
+    "id": 32,
+    "type": "verde"
+  },
+  {
+    "img": "../../../assets/img/Edificios/asilo.png",
+    "text": "Asilo",
+    "description": "La puntuación máxima de Asilo es 26. Si construyes más de 6 Asilo, la puntuación total de Asilo sigue siendo 26.",
+    "id": 12,
+    "type": "verde"
+  },
+  {
+    "img": "../../../assets/img/Edificios/posada.png",
+    "text": "Posada",
+    "description": "Posada que estén en la misma fila o columna valen 0 puntos.",
+    "id": 28,
+    "type": "verde"
+  },
+  {
+    "img": "../../../assets/img/Edificios/sala de fiestas.png",
+    "text": "Sala de fiestas",
+    "description": "Si empatas con el jugador que está a tu derecha, tus salas de fiesta sólo valen 2 puntos.",
+    "id": 30,
+    "type": "verde"
+  },
+  {
+    "img": "../../../assets/img/Edificios/mercado.png",
+    "text": "Mercado",
+    "description": "Mercado puntúan por fila o por columna, pero no ambas.Los Markets siempre puntúan 1 por sí mismos además de por otros Markets en la misma fila o columna, hasta un máximo de 4 ",
+    "id": 25,
+    "type": "amarillo"
+  },
+  {
+    "img": "../../../assets/img/Edificios/sastre.png",
+    "text": "Sastre",
+    "description": "Sastre que no se hayan construído en los 4 recuadros centrales siguen valiendo 1 mas 1 por cada Sastre en los 4 recuadros centrales. Lo máximo que un Sastre puede puede puntuar en total son 5.",
+    "id": 31,
+    "type": "amarillo"
+  },
+  {
+    "img": "../../../assets/img/Edificios/teatro.png",
+    "text": "Teatro",
+    "description": "La puntuación de un Teatro es el número total de tipos de edificio únicos además del Teatro que comparten fila o Columna con ese Teatro, por un máximo de 6 puntos. Si hay edificios del mismo tipo en la misma fila y columna del Teatro, ese tipo de edificio sólo cuenta una vez para la puntuación del Theater.El monumento cuenta como un tipo de edificio único(a menos que sea Barrett Castle, que cuenta como 2).",
+    "id": 33,
+    "type": "amarillo"
+  },
+  {
+    "img": "../../../assets/img/Edificios/pasteleria.png",
+    "text": "Pasteleria",
+    "description": "Adyacente se refiere a arriba, abajo, izquierda y derecha, no diagonal.",
+    "id": 27,
+    "type": "amarillo"
   }
 ]

@@ -1,13 +1,35 @@
 <!-- Toolbar -->
 <div class="toolbar1" role="banner">
-    <img width="60" alt="Angular Logo" src="../../../assets/img/logo.png" />
-    <span style="width: 91px;">Tiny Towns</span>
-    <div class="spacer"></div>
-
+    <div class="row w-100">
+        <div class="col-2 text-center center top-0">
+            <div class="w-100">
+                <img width="100" alt="Angular Logo" src="../../../assets/img/logo.png" />
+                <span style="width: 91px;">Tiny Towns</span>
+            </div>
+        </div>
+        <div class="col-8">
+            <div>
+                <div *ngIf="seleccionadas.length > 0" class="d-flex justify-content-center align-content-center">
+                    <div *ngFor="let item of seleccionadas">
+                        <img class="card-img-top" [src]="item.img" alt="Card image cap"
+                            style='width:101px;margin-right: 10px;'>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 center">
+            <div *ngIf="seleccionadas.length == 1">
+                <Button class="btn" (click)="modalEdificios(edificios)">
+                    <img alt='reset' src="../../../assets/martillo.png" width="130" />
+                    <p class="text-white font-weight-bold"> Arma tu baraja</p>
+                </Button>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="main-container text-center  ">
-    <div class="row mt-5">
+    <div class="row margin">
         <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 mt-5">
             <div>
                 <div class="col-12 animated flip"
@@ -21,60 +43,66 @@
                         <b *ngIf="material === 5">Piedra</b>
                     </p>
                 </div>
-
-                <div class="col-12 animated flip " style="cursor: pointer;">
-                    <div *ngIf="material1 === 1" (click)="obtenermaterial(1,material1)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/madera.png" />
+                <div class="row">
+                    <div class="col-4 col-md-3 col-lg-12 col-xl-12 animated flip " style="cursor: pointer;">
+                        <div *ngIf="material1 === 1" (click)="obtenermaterial(1,material1)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/madera.png" />
+                        </div>
+                        <div *ngIf="material1 === 2" (click)="obtenermaterial(1,material1)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Trigo.png" />
+                        </div>
+                        <div *ngIf="material1 === 3" (click)="obtenermaterial(1,material1)">
+                            <img alt='material' class='img-material'
+                                src="../../../assets/img/Materiales/Ladrillo.png" />
+                        </div>
+                        <div *ngIf="material1 === 4" (click)="obtenermaterial(1,material1)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Vidrio.png" />
+                        </div>
+                        <div *ngIf="material1 === 5" (click)="obtenermaterial(1,material1)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Piedra.png" />
+                        </div>
                     </div>
-                    <div *ngIf="material1 === 2" (click)="obtenermaterial(1,material1)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Trigo.png" />
+                    <div class="col-4 col-md-3 col-lg-12 col-xl-12 animated flip " style="cursor: pointer;">
+                        <div *ngIf="material2 === 1" (click)="obtenermaterial(2,material2)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/madera.png" />
+                        </div>
+                        <div *ngIf="material2 === 2" (click)="obtenermaterial(2,material2)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Trigo.png" />
+                        </div>
+                        <div *ngIf="material2 === 3" (click)="obtenermaterial(2,material2)">
+                            <img alt='material' class='img-material'
+                                src="../../../assets/img/Materiales/Ladrillo.png" />
+                        </div>
+                        <div *ngIf="material2 === 4" (click)="obtenermaterial(2,material2)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Vidrio.png" />
+                        </div>
+                        <div *ngIf="material2 === 5" (click)="obtenermaterial(2,material2)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Piedra.png" />
+                        </div>
                     </div>
-                    <div *ngIf="material1 === 3" (click)="obtenermaterial(1,material1)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Ladrillo.png" />
+                    <div class="col-4 col-md-3 col-lg-12 col-xl-12 animated flip " style="cursor: pointer;">
+                        <div *ngIf="material3 === 1" (click)="obtenermaterial(3,material3)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/madera.png" />
+                        </div>
+                        <div *ngIf="material3 === 2" (click)="obtenermaterial(3,material3)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Trigo.png" />
+                        </div>
+                        <div *ngIf="material3 === 3" (click)="obtenermaterial(3,material3)">
+                            <img alt='material' class='img-material'
+                                src="../../../assets/img/Materiales/Ladrillo.png" />
+                        </div>
+                        <div *ngIf="material3 === 4" (click)="obtenermaterial(3,material3)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Vidrio.png" />
+                        </div>
+                        <div *ngIf="material3 === 5" (click)="obtenermaterial(3,material3)">
+                            <img alt='material' class='img-material' src="../../../assets/img/Materiales/Piedra.png" />
+                        </div>
                     </div>
-                    <div *ngIf="material1 === 4" (click)="obtenermaterial(1,material1)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Vidrio.png" />
+                    <div class="col-4 col-md-3 col-lg-12 col-xl-12 pt-3" style="cursor: pointer;">
+                        <Button class="btn" [disabled]="btnreset" (click)="lanzardados()">
+                            <img alt='reset' class="reset" src="../../../assets/reset.png" />
+                        </Button>
                     </div>
-                    <div *ngIf="material1 === 5" (click)="obtenermaterial(1,material1)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Piedra.png" />
-                    </div>
-                </div>
-                <div class="col-12 animated flip " style="cursor: pointer;">
-                    <div *ngIf="material2 === 1" (click)="obtenermaterial(2,material2)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/madera.png" />
-                    </div>
-                    <div *ngIf="material2 === 2" (click)="obtenermaterial(2,material2)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Trigo.png" />
-                    </div>
-                    <div *ngIf="material2 === 3" (click)="obtenermaterial(2,material2)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Ladrillo.png" />
-                    </div>
-                    <div *ngIf="material2 === 4" (click)="obtenermaterial(2,material2)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Vidrio.png" />
-                    </div>
-                    <div *ngIf="material2 === 5" (click)="obtenermaterial(2,material2)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Piedra.png" />
-                    </div>
-                </div>
-                <div class="col-12 animated flip " style="cursor: pointer;">
-                    <div *ngIf="material3 === 1" (click)="obtenermaterial(3,material3)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/madera.png" />
-                    </div>
-                    <div *ngIf="material3 === 2" (click)="obtenermaterial(3,material3)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Trigo.png" />
-                    </div>
-                    <div *ngIf="material3 === 3" (click)="obtenermaterial(3,material3)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Ladrillo.png" />
-                    </div>
-                    <div *ngIf="material3 === 4" (click)="obtenermaterial(3,material3)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Vidrio.png" />
-                    </div>
-                    <div *ngIf="material3 === 5" (click)="obtenermaterial(3,material3)">
-                        <img alt='material' class='img-material' src="../../../assets/img/Materiales/Piedra.png" />
-                    </div>
-                </div>
-                <div class="col-12 pt-3" (click)="lanzardados()" style="cursor: pointer;">
-                    <img alt='reset' class="reset" src="../../../assets/reset.png" />
                 </div>
             </div>
         </div>
@@ -152,8 +180,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 info h-100 mt-5" (click)="modalEdificios(edificios)"
-            style="cursor: pointer;">
+        <div *ngIf="seleccionadas.length == 7" class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 info h-100 mt-5"
+            (click)="modalEdificios(edificios)" style="cursor: pointer;">
             <img alt='info' src="../../../assets/info.gif" width="132px" />
         </div>
     </div>
@@ -173,8 +201,9 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
-        <p>Puedes construir</p>
+    <div class="modal-body" style="height:251px">
+        <button [ngStyle]="{'background-image': getImage(porconstruir)}"
+            class="btn btn-fondo btn-area btn-image"></button>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');closemodal()">Si</button>
@@ -191,17 +220,28 @@
                 <p>Click en la imagen para ver su descripción</p>
             </div>
             <div class="col">
-                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <button *ngIf="seleccionadas.length == 7" type="button" class="close" aria-label="Close"
+                    (click)="modal.dismiss('Cross click')">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
         </div>
     </div>
-    <div class="modal-body" style="height: 850px;">
+    <div class="modal-body" style="height: 850px;" *ngIf="imagenes.length > 0">
         <div class="row modal-scroll">
             <div class=" m-2 center" *ngFor="let item of imagenes" style="width: 200px;">
-                <button class='btn' ngbPopover={{item.description}} popoverTitle={{item.text}}>
-                    <!-- triggers="mouseenter:mouseleave" -->
+                <button class='btn' ngbPopover={{item.description}} popoverTitle={{item.text}}
+                    triggers="mouseenter:mouseleave" (click)="ingresarSeleccion(item)">
+                    <img class="card-img-top" [src]="item.img" alt="Card image cap" style='width:125px;'>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body" style="height: 100%;" *ngIf="seleccionadas.length > 0">
+        <div class="row modal-scroll2">
+            <div class=" m-2 center" *ngFor="let item of seleccionadas" style="width: 200px;">
+                <button class='btn' ngbPopover={{item.description}} popoverTitle={{item.text}}
+                    triggers="mouseenter:mouseleave">
                     <img class="card-img-top" [src]="item.img" alt="Card image cap" style='width:125px;'>
                 </button>
             </div>
@@ -218,25 +258,36 @@
         </button>
     </div>
     <div class="modal-body">
-        <div class="row "> 
-            <div class="col-12 p-2 d-flex justify-content-center align-content-center">
-                 <Button class="btn btn-info" (click)="seleccionarConstruccion(29)" >Pozo</Button>
+        <div class="row ">
+            <div class="col p-2 d-flex justify-content-center align-content-center">
+                <Button class="btn" (click)="seleccionarConstruccion(29)">
+                    <p class="txt-repetidos">Pozo</p>
+                    <img alt='pozo' src="../../../assets/img/Edificios/pozo.png" width="150" />
+                </Button>
             </div>
-            <div class="col-12 p-2  d-flex justify-content-center align-content-center">       
-                 <Button class="btn btn-info" (click)="seleccionarConstruccion(20)" >Fuente</Button>
+            <div class="col p-2  d-flex justify-content-center align-content-center">
+                <Button class="btn" (click)="seleccionarConstruccion(20)">
+                    <p class="txt-repetidos">Fuente</p>
+                    <img alt='fuente' src="../../../assets/img/Edificios/fuente.png" width="150" />
+                </Button>
             </div>
-            <div class="col-12 p-2 d-flex justify-content-center align-content-center">        
-                <Button class="btn btn-info" (click)="seleccionarConstruccion(26)">Molino</Button>
+            <div class="col p-2 d-flex justify-content-center align-content-center">
+                <Button class="btn" (click)="seleccionarConstruccion(26)">
+                    <p class="txt-repetidos">Molino</p>
+                    <img alt='Molino' src="../../../assets/img/Edificios/molinoPiedra.png" width="150" />
+                </Button>
             </div>
-            <div class="col-12 p-2 d-flex justify-content-center align-content-center">        
-                <Button class="btn btn-info text-xl-center" (click)="seleccionarConstruccion(18)">Cobertizo</Button>
+            <div class="col p-2 d-flex justify-content-center align-content-center">
+                <Button class="btn text-xl-center" (click)="seleccionarConstruccion(18)">
+                    <p class="txt-repetidos">Cobertizo</p>
+                    <img alt='cobertizo' src="../../../assets/img/Edificios/cobertizo.png" width="150" />
+                </Button>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');closemodal();closemodalConstruirIguales(porconstruir) ">Aceptar</button>
+        <button type="button" class="btn btn-outline-dark"
+            (click)="modal.close('Save click');closemodal();closemodalConstruirIguales(porconstruir) ">Aceptar</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('Save click');">Cancelar</button>
     </div>
-
-
 </ng-template>
