@@ -11,7 +11,7 @@
             <div>
                 <div *ngIf="seleccionadas.length > 0" class="d-flex justify-content-center align-content-center">
                     <div *ngFor="let item of seleccionadas">
-                        <img class="card-img-top" [src]="item.img" alt="Card image cap"
+                        <img class="card-img-top btn-image-header " [src]="item.img" alt="Card image cap"
                             style='width:101px;margin-right: 10px;'>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
 
 <ng-template #casa let-modal>
     <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">{{title}} : {{contenido}}</h4>
+        <h4 class="modal-title" id="modal-basic-title">"¿Deseas construir este edificio?"</h4>
         <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
@@ -207,6 +207,8 @@
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');closemodal()">Si</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Save click');">No</button>
+
     </div>
 </ng-template>
 

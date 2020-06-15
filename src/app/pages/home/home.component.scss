@@ -298,9 +298,6 @@ svg#clouds {
   left: 12%;
 }
 
-.celda {
-  // border: 3px solid green;
-}
 
 .btn-area {
   width: 100%;
@@ -313,6 +310,8 @@ svg#clouds {
   background-position: center;
   border-radius: 30px;
 }
+
+
 
 .toolbar1 {
   height: 157px;
@@ -436,6 +435,18 @@ svg#clouds {
   transform: scale(1.1);
 }
 
+.btn-image-header {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+
+}
+
+.btn-image-header:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
 
 
 ngb-modal-window {
