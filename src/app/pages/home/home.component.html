@@ -208,23 +208,23 @@
     </div>
     <div class="modal-body">
         <div class="row "> 
-            <div class="col-12 d-flex justify-content-center align-content-center">
-                 <Button class="btn btn-info" >Pozo</Button>
+            <div class="col-12 p-2 d-flex justify-content-center align-content-center">
+                 <Button class="btn btn-info" (click)="seleccionarConstruccion(29)" >Pozo</Button>
             </div>
-            <div class="col-12  d-flex justify-content-center align-content-center">       
-                 <Button class="btn btn-info" >Fuente</Button>
+            <div class="col-12 p-2  d-flex justify-content-center align-content-center">       
+                 <Button class="btn btn-info" (click)="seleccionarConstruccion(20)" >Fuente</Button>
             </div>
-            <div class="col-12 d-flex justify-content-center align-content-center">        
-                <Button class="btn btn-info" >Molino</Button>
+            <div class="col-12 p-2 d-flex justify-content-center align-content-center">        
+                <Button class="btn btn-info" (click)="seleccionarConstruccion(26)">Molino</Button>
             </div>
-            <div class="col-12 d-flex justify-content-center align-content-center">        
-                <Button class="btn btn-info text-xl-center" >Cobertizo</Button>
+            <div class="col-12 p-2 d-flex justify-content-center align-content-center">        
+                <Button class="btn btn-info text-xl-center" (click)="seleccionarConstruccion(18)">Cobertizo</Button>
             </div>
         </div>
     </div>
     <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');closemodal()">Si</button>
-        <button type="button" class="btn btn-danger" (click)="modal.close('Save click');">NO</button>
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');closemodal();closemodalConstruirIguales(porconstruir) ">Aceptar</button>
+        <button type="button" class="btn btn-danger" (click)="modal.close('Save click');">Cancelar</button>
     </div>
    
    
