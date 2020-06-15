@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -57,9 +58,8 @@ export class HomeComponent implements OnInit {
   porconstruir;
   matriz: any[3][3];
 
-  imagenes = require('./imagenes.json');
+  imagenes = require('../../../assets/imagenes.json');
   constructor(private modalService: NgbModal) {}
-
 
   ngOnInit(): void {
     this.matriz = new Array();
@@ -256,7 +256,6 @@ export class HomeComponent implements OnInit {
     if (this.material != 1000) {
       switch (num) {
         case 1:
-
           this.material1 = '';
 
           break;
@@ -279,7 +278,7 @@ export class HomeComponent implements OnInit {
     this.validarGranja(ren, col, material);
     this.validarHuerto(ren, col, material);
 
-    this.validarSimilares(ren,col,material)
+    this.validarSimilares(ren, col, material);
 
     this.limpiarCasillas();
 
@@ -307,7 +306,7 @@ export class HomeComponent implements OnInit {
   modalRepetidos() {
     this.modalService.open(this.repetidos, {
       backdropClass: 'light-blue-backdrop',
-      backdrop: 'static'
+      backdrop: 'static',
     });
   }
   limpiarCasillas() {
@@ -596,14 +595,18 @@ export class HomeComponent implements OnInit {
         break;
       //vidrio,
       case 4:
-        if (ren < 3 && this.matriz[ren + 1][col] == 2 && this.matriz[ren][col + 1] == 1 && this.matriz[ren + 1][col + 1] == 1) {
+        if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 2 &&
+          this.matriz[ren][col + 1] == 1 &&
+          this.matriz[ren + 1][col + 1] == 1
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren + 1, col]);
           coordenadas.push([ren, col + 1]);
           coordenadas.push([ren + 1, col + 1]);
           this.modalConstruir(24);
           this.coordenadasConstruccion = coordenadas;
-
         }
 
         break;
@@ -619,7 +622,11 @@ export class HomeComponent implements OnInit {
       case 1:
         if (ren == 0) {
         } else {
-          if (this.matriz[ren - 1][col] == 2 && this.matriz[ren][col + 1] == 3 && this.matriz[ren - 1][col + 1] == 2) {
+          if (
+            this.matriz[ren - 1][col] == 2 &&
+            this.matriz[ren][col + 1] == 3 &&
+            this.matriz[ren - 1][col + 1] == 2
+          ) {
             coordenadas.push([ren, col]);
             coordenadas.push([ren - 1, col]);
             coordenadas.push([ren, col + 1]);
@@ -631,26 +638,39 @@ export class HomeComponent implements OnInit {
         break;
       //trigo
       case 2:
-        if (ren < 3 && this.matriz[ren + 1][col] == 1 && this.matriz[ren][col + 1] == 2 && this.matriz[ren + 1][col + 1] == 3) {
+        if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 1 &&
+          this.matriz[ren][col + 1] == 2 &&
+          this.matriz[ren + 1][col + 1] == 3
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren + 1, col]);
           coordenadas.push([ren, col + 1]);
           coordenadas.push([ren + 1, col + 1]);
           this.modalConstruir(21);
           this.coordenadasConstruccion = coordenadas;
-        } else
-          if (ren < 3 && this.matriz[ren + 1][col] == 3 && this.matriz[ren + 1][col - 1] == 1 && this.matriz[ren][col - 1] == 2) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren + 1, col]);
-            coordenadas.push([ren + 1, col - 1]);
-            coordenadas.push([ren, col - 1]);
-            this.modalConstruir(21);
-            this.coordenadasConstruccion = coordenadas;
-          }
+        } else if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 3 &&
+          this.matriz[ren + 1][col - 1] == 1 &&
+          this.matriz[ren][col - 1] == 2
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren + 1, col - 1]);
+          coordenadas.push([ren, col - 1]);
+          this.modalConstruir(21);
+          this.coordenadasConstruccion = coordenadas;
+        }
         break;
       //ladrillo
       case 3:
-        if (this.matriz[ren][col - 1] == 1 && this.matriz[ren - 1][col] == 2 && this.matriz[ren - 1][col - 1] == 2) {
+        if (
+          this.matriz[ren][col - 1] == 1 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren - 1][col - 1] == 2
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           coordenadas.push([ren - 1, col]);
@@ -659,7 +679,6 @@ export class HomeComponent implements OnInit {
           this.coordenadasConstruccion = coordenadas;
         }
         break;
-
 
       default:
         break;
@@ -671,15 +690,24 @@ export class HomeComponent implements OnInit {
     switch (material) {
       //madera
       case 1:
-
-        if (ren > 0 && this.matriz[ren - 1][col] == 2 && this.matriz[ren - 1][col + 1] == 2 && this.matriz[ren][col + 1] == 1) {
+        if (
+          ren > 0 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren - 1][col + 1] == 2 &&
+          this.matriz[ren][col + 1] == 1
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren - 1, col]);
           coordenadas.push([ren - 1, col + 1]);
           coordenadas.push([ren, col + 1]);
           this.modalConstruir(22);
           this.coordenadasConstruccion = coordenadas;
-        } else if (ren > 0 && this.matriz[ren - 1][col] == 2 && this.matriz[ren - 1][col - 1] == 2 && this.matriz[ren][col - 1] == 1) {
+        } else if (
+          ren > 0 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren - 1][col - 1] == 2 &&
+          this.matriz[ren][col - 1] == 1
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren - 1, col]);
           coordenadas.push([ren - 1, col - 1]);
@@ -691,22 +719,31 @@ export class HomeComponent implements OnInit {
         break;
       //trigo
       case 2:
-        if (ren < 3 && this.matriz[ren + 1][col] == 1 && this.matriz[ren][col + 1] == 2 && this.matriz[ren + 1][col + 1] == 1) {
+        if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 1 &&
+          this.matriz[ren][col + 1] == 2 &&
+          this.matriz[ren + 1][col + 1] == 1
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren + 1, col]);
           coordenadas.push([ren, col + 1]);
           coordenadas.push([ren + 1, col + 1]);
           this.modalConstruir(22);
           this.coordenadasConstruccion = coordenadas;
-        } else
-          if (ren < 3 && this.matriz[ren + 1][col] == 1 && this.matriz[ren + 1][col - 1] == 1 && this.matriz[ren][col - 1] == 2) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren + 1, col]);
-            coordenadas.push([ren + 1, col - 1]);
-            coordenadas.push([ren, col - 1]);
-            this.modalConstruir(22);
-            this.coordenadasConstruccion = coordenadas;
-          }
+        } else if (
+          ren < 3 &&
+          this.matriz[ren + 1][col] == 1 &&
+          this.matriz[ren + 1][col - 1] == 1 &&
+          this.matriz[ren][col - 1] == 2
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren + 1, col]);
+          coordenadas.push([ren + 1, col - 1]);
+          coordenadas.push([ren, col - 1]);
+          this.modalConstruir(22);
+          this.coordenadasConstruccion = coordenadas;
+        }
         break;
 
       default:
@@ -719,7 +756,12 @@ export class HomeComponent implements OnInit {
     switch (material) {
       //madera
       case 1:
-        if (ren > 0 && this.matriz[ren - 1][col] == 2 && this.matriz[ren][col - 1] == 2 && this.matriz[ren - 1][col - 1] == 5) {
+        if (
+          ren > 0 &&
+          this.matriz[ren - 1][col] == 2 &&
+          this.matriz[ren][col - 1] == 2 &&
+          this.matriz[ren - 1][col - 1] == 5
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren - 1, col]);
           coordenadas.push([ren, col - 1]);
@@ -731,27 +773,39 @@ export class HomeComponent implements OnInit {
 
       //Trigo
       case 2:
-        if (this.matriz[ren][col - 1] == 5 && this.matriz[ren + 1][col] == 1 && this.matriz[ren + 1][col - 1] == 2) {
+        if (
+          this.matriz[ren][col - 1] == 5 &&
+          this.matriz[ren + 1][col] == 1 &&
+          this.matriz[ren + 1][col - 1] == 2
+        ) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           coordenadas.push([ren + 1, col]);
           coordenadas.push([ren + 1, col - 1]);
           this.modalConstruir(23);
           this.coordenadasConstruccion = coordenadas;
-        } else
-          if (this.matriz[ren][col + 1] == 1 && this.matriz[ren - 1][col] == 5 && this.matriz[ren - 1][col + 1] == 2) {
-            coordenadas.push([ren, col]);
-            coordenadas.push([ren, col + 1]);
-            coordenadas.push([ren - 1, col]);
-            coordenadas.push([ren - 1, col + 1]);
-            this.modalConstruir(23);
-            this.coordenadasConstruccion = coordenadas;
-          }
+        } else if (
+          this.matriz[ren][col + 1] == 1 &&
+          this.matriz[ren - 1][col] == 5 &&
+          this.matriz[ren - 1][col + 1] == 2
+        ) {
+          coordenadas.push([ren, col]);
+          coordenadas.push([ren, col + 1]);
+          coordenadas.push([ren - 1, col]);
+          coordenadas.push([ren - 1, col + 1]);
+          this.modalConstruir(23);
+          this.coordenadasConstruccion = coordenadas;
+        }
         break;
       case 5:
         if (ren == 0) {
         } else {
-          if (ren < 3 && this.matriz[ren + 1][col] == 2 && this.matriz[ren][col + 1] == 2 && this.matriz[ren + 1][col + 1] == 1) {
+          if (
+            ren < 3 &&
+            this.matriz[ren + 1][col] == 2 &&
+            this.matriz[ren][col + 1] == 2 &&
+            this.matriz[ren + 1][col + 1] == 1
+          ) {
             coordenadas.push([ren, col]);
             coordenadas.push([ren - 1, col]);
             coordenadas.push([ren, col + 1]);
@@ -772,30 +826,28 @@ export class HomeComponent implements OnInit {
     let coordenadas = [];
     switch (material) {
       case 1:
-        if(this.matriz[ren][col+1]==5){
+        if (this.matriz[ren][col + 1] == 5) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col + 1]);
           this.modalRepetidos();
-          console.log("este es un poso o cualquier mamada");
+          console.log('este es un poso o cualquier mamada');
           this.coordenadasConstruccion = coordenadas;
         }
         break;
       case 5:
-        if(this.matriz[ren][col-1]==1){
+        if (this.matriz[ren][col - 1] == 1) {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           this.modalRepetidos();
-          console.log("este es un poso o cualquier mamada");
+          console.log('este es un poso o cualquier mamada');
           this.coordenadasConstruccion = coordenadas;
         }
         break;
-
 
       default:
         break;
     }
   }
-
 
   dibujar() {
     this.A1 = this.matriz[0][0];

@@ -1,16 +1,14 @@
 <!-- Toolbar -->
 <div class="toolbar1" role="banner">
     <img width="60" alt="Angular Logo" src="../../../assets/img/logo.png" />
-    <span style="width: 81px;">Tiny Towns</span>
+    <span style="width: 91px;">Tiny Towns</span>
     <div class="spacer"></div>
-    <div class="w-100 text-center">
-        <Button class="btn btn-success" (click)="lanzardados()">Lanzar Dado</Button>
-    </div>
+
 </div>
 
 <div class="main-container text-center  ">
     <div class="row mt-5">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 mt-5">
             <div>
                 <div class="col-12 animated flip"
                     style="height: 122px; display: flex; justify-content: center; align-items: center; font-size: 16px; color: white;"
@@ -23,6 +21,7 @@
                         <b *ngIf="material === 5">Piedra</b>
                     </p>
                 </div>
+
                 <div class="col-12 animated flip " style="cursor: pointer;">
                     <div *ngIf="material1 === 1" (click)="obtenermaterial(1,material1)">
                         <img alt='material' class='img-material' src="../../../assets/img/Materiales/madera.png" />
@@ -74,9 +73,12 @@
                         <img alt='material' class='img-material' src="../../../assets/img/Materiales/Piedra.png" />
                     </div>
                 </div>
+                <div class="col-12 pt-3" (click)="lanzardados()" style="cursor: pointer;">
+                    <img alt='reset' class="reset" src="../../../assets/reset.png" />
+                </div>
             </div>
         </div>
-        <div class="col col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 border-padre animated flip">
+        <div class="col col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 border-padre animated flip mt-5">
             <div class="row">
                 <div class="col-3 h-col center celda p-1">
                     <button [ngStyle]="{'background-image': getImage(A1)}" class="btn btn-fondo btn-area btn-image"
@@ -150,7 +152,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 info h-100" (click)="modalEdificios(edificios)"
+        <div class="col-12 col-sm-12 col-md-12 col-lg-2 col-xl-2 info h-100 mt-5" (click)="modalEdificios(edificios)"
             style="cursor: pointer;">
             <img alt='info' src="../../../assets/info.gif" width="132px" />
         </div>
@@ -179,20 +181,29 @@
     </div>
 </ng-template>
 
-<ng-template #edificios let-modal style="max-width: 1554px;">
+<ng-template #edificios let-modal style="max-width: 1554px;" class="modal-image">
     <div class="modal-header">
-        <img alt='foto' src="../../../assets/img/logo.png" width="60" />
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="row w-100">
+            <div class="col-1">
+                <img alt='foto' src="../../../assets/img/logo.png" width="60" />
+            </div>
+            <div class="col" style="font-size: 20px;font-weight: 700;padding: 7px;">
+                <p>Click en la imagen para ver su descripción</p>
+            </div>
+            <div class="col">
+                <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div>
     </div>
     <div class="modal-body" style="height: 850px;">
         <div class="row modal-scroll">
-            <div class=" m-2 center" *ngFor="let item of imagenes" style="    width: 266px;">
-                <img class="card-img-top" [src]="item.img" alt="Card image cap" style='width:125px'>
-                <p><b>{{item.text}}</b><br>
-                    {{item.description}}
-                </p>
+            <div class=" m-2 center" *ngFor="let item of imagenes" style="width: 200px;">
+                <button class='btn' ngbPopover={{item.description}} popoverTitle={{item.text}}>
+                    <!-- triggers="mouseenter:mouseleave" -->
+                    <img class="card-img-top" [src]="item.img" alt="Card image cap" style='width:125px;'>
+                </button>
             </div>
         </div>
     </div>
@@ -207,18 +218,18 @@
         </button>
     </div>
     <div class="modal-body">
-        <div class="row "> 
+        <div class="row ">
             <div class="col-12 d-flex justify-content-center align-content-center">
-                 <Button class="btn btn-info" >Pozo</Button>
+                <Button class="btn btn-info">Pozo</Button>
             </div>
-            <div class="col-12  d-flex justify-content-center align-content-center">       
-                 <Button class="btn btn-info" >Fuente</Button>
+            <div class="col-12  d-flex justify-content-center align-content-center">
+                <Button class="btn btn-info">Fuente</Button>
             </div>
-            <div class="col-12 d-flex justify-content-center align-content-center">        
-                <Button class="btn btn-info" >Molino</Button>
+            <div class="col-12 d-flex justify-content-center align-content-center">
+                <Button class="btn btn-info">Molino</Button>
             </div>
-            <div class="col-12 d-flex justify-content-center align-content-center">        
-                <Button class="btn btn-info text-xl-center" >Cobertizo</Button>
+            <div class="col-12 d-flex justify-content-center align-content-center">
+                <Button class="btn btn-info text-xl-center">Cobertizo</Button>
             </div>
         </div>
     </div>
@@ -226,6 +237,6 @@
         <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click');closemodal()">Si</button>
         <button type="button" class="btn btn-danger" (click)="modal.close('Save click');">NO</button>
     </div>
-   
-   
+
+
 </ng-template>

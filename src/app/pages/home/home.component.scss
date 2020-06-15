@@ -6,18 +6,7 @@ p {
   flex: 1;
 }
 
-.toolbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  background-color: #1976d2;
-  color: white;
-  font-weight: 600;
-}
+
 
 .toolbar img {
   margin: 0 16px;
@@ -322,10 +311,12 @@ svg#clouds {
 }
 
 .toolbar1 {
-  height: 60px;
+  height: 76px;
+  position: absolute;
+  width: 100%;
   display: flex;
   align-items: center;
-  background-color: #1976d2;
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
   font-weight: 600;
 }
@@ -349,6 +340,22 @@ svg#clouds {
   width: 160px;
   height: 160px;
   border: 11px solid #944a0d;
+}
+
+.reset {
+  animation: reset-spin infinite 8s linear;
+  height: 128px;
+  width: 129px;
+}
+
+@keyframes reset-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .madera {
@@ -404,6 +411,26 @@ svg#clouds {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+
+
+
+ngb-modal-window {
+  .modal-dialog {
+    .modal-content {
+      background-color: rgba(500, 500, 500, 0.7) !important;
+    }
+
+
+  }
+
+}
+
+.row {
+  padding: 0px 0px 0px 0px;
+}
+
+
+
 
 @-webkit-keyframes rebota {
   0% {
