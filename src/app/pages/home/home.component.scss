@@ -284,7 +284,11 @@ svg#clouds {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 30px;
+  padding: 15px;
+}
+
+.margin {
+  margin-top: 102px;
 }
 
 .pos-contain {
@@ -311,7 +315,7 @@ svg#clouds {
 }
 
 .toolbar1 {
-  height: 76px;
+  height: 157px;
   position: absolute;
   width: 100%;
   display: flex;
@@ -324,8 +328,22 @@ svg#clouds {
 .btn-fondo {
   background-image: url(../../../assets/img/fondo.jpg);
   background-repeat: no-repeat;
-  background-size: 275px;
+  background-size: 210px;
   background-position: center;
+}
+
+.celda {
+
+  button:disabled,
+  button[disabled] {
+    opacity: 0.8;
+  }
+}
+
+.txt-repetidos {
+  font-size: 26px;
+  font-weight: 700;
+  color: black;
 }
 
 .letrero {
@@ -374,6 +392,11 @@ svg#clouds {
   align-items: center;
 }
 
+.modal-scroll2 {
+  justify-content: center;
+  align-items: center;
+}
+
 .border-padre {
   border: 21px solid rgba(222, 177, 156, 0.3);
   border-radius: 31px;
@@ -382,7 +405,7 @@ svg#clouds {
 
 .info {
   position: relative;
-  right: 0px;
+  right: 20px;
   animation: rebota 0.8s alternate infinite ease-out;
 }
 
@@ -405,6 +428,7 @@ svg#clouds {
   transform: scale(1);
   -webkit-transition: .3s ease-in-out;
   transition: .3s ease-in-out;
+
 }
 
 .btn-image:hover {
