@@ -58,13 +58,8 @@ export class HomeComponent implements OnInit {
   porconstruir;
   matriz: any[3][3];
 
-<<<<<<< HEAD
   imagenes = require('../../../assets/imagenes.json');
   constructor(private modalService: NgbModal) {}
-=======
-  imagenes = require('./imagenes.json');
-  constructor(private modalService: NgbModal) { }
->>>>>>> b681e1daf29374834d8cbf1c3d0f78a252841651
 
   ngOnInit(): void {
     this.matriz = new Array();
@@ -295,17 +290,11 @@ export class HomeComponent implements OnInit {
     this.validarGranero(ren, col, material);
     this.validarGranja(ren, col, material);
     this.validarHuerto(ren, col, material);
-<<<<<<< HEAD
-
-    this.validarSimilares(ren, col, material);
-
-=======
     this.validarSimilares(ren, col, material)
     this.validarAbadia(ren,col,material);
     this.validarAlmacen(ren,col,material);
     this.validarAsilo(ren,col,material);
-    this.validarBanco(ren,col,material);
->>>>>>> b681e1daf29374834d8cbf1c3d0f78a252841651
+    //this.validarBanco(ren,col,material);
     this.limpiarCasillas();
 
     //this.material = 0;
@@ -809,21 +798,7 @@ export class HomeComponent implements OnInit {
           coordenadas.push([ren + 1, col]);
           coordenadas.push([ren + 1, col - 1]);
           this.modalConstruir(23);
-          this.coordenadasConstruccion = coordenadas;
-<<<<<<< HEAD
-        } else if (
-          this.matriz[ren][col + 1] == 1 &&
-          this.matriz[ren - 1][col] == 5 &&
-          this.matriz[ren - 1][col + 1] == 2
-        ) {
-          coordenadas.push([ren, col]);
-          coordenadas.push([ren, col + 1]);
-          coordenadas.push([ren - 1, col]);
-          coordenadas.push([ren - 1, col + 1]);
-          this.modalConstruir(23);
-          this.coordenadasConstruccion = coordenadas;
-        }
-=======
+
         } else
           if (ren > 0 && this.matriz[ren][col + 1] == 1 && this.matriz[ren - 1][col] == 5 && this.matriz[ren - 1][col + 1] == 2) {
             coordenadas.push([ren, col]);
@@ -833,7 +808,6 @@ export class HomeComponent implements OnInit {
             this.modalConstruir(23);
             this.coordenadasConstruccion = coordenadas;
           }
->>>>>>> b681e1daf29374834d8cbf1c3d0f78a252841651
         break;
       case 5:
         if (ren == 0) {
@@ -868,10 +842,6 @@ export class HomeComponent implements OnInit {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col + 1]);
           this.modalRepetidos();
-<<<<<<< HEAD
-          console.log('este es un poso o cualquier mamada');
-=======
->>>>>>> b681e1daf29374834d8cbf1c3d0f78a252841651
           this.coordenadasConstruccion = coordenadas;
         }
         break;
@@ -880,10 +850,6 @@ export class HomeComponent implements OnInit {
           coordenadas.push([ren, col]);
           coordenadas.push([ren, col - 1]);
           this.modalRepetidos();
-<<<<<<< HEAD
-          console.log('este es un poso o cualquier mamada');
-=======
->>>>>>> b681e1daf29374834d8cbf1c3d0f78a252841651
           this.coordenadasConstruccion = coordenadas;
         }
         break;
@@ -893,8 +859,6 @@ export class HomeComponent implements OnInit {
     }
   }
 
-<<<<<<< HEAD
-=======
   validarAbadia(ren, col, material) {
     let coordenadas = [];
     switch (material) {
@@ -1151,7 +1115,6 @@ export class HomeComponent implements OnInit {
   //   }
   // }
 
->>>>>>> b681e1daf29374834d8cbf1c3d0f78a252841651
   dibujar() {
     this.A1 = this.matriz[0][0];
     this.A2 = this.matriz[0][1];
